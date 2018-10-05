@@ -1,0 +1,222 @@
+{% extends "layout.html" %}
+{% block title %}Investment List{% endblock %}
+{% block js %}
+<script src="/static/assets/js/script.js"></script>
+<script src="/static/assets/js/getinfo.js"></script>
+<script src="/static/assets/js/lending.js"></script>
+<script src="/static/assets/js/main.js"></script>
+{% endblock %}
+{% block main %}
+<div class="section__content section__content--p30">
+   <style>
+      .btn-primary 
+      {
+      color: #fff;
+      background-color: #121734;
+      }
+      .btn-warning 
+      {
+      color: #212529;
+      background-color: #DDAF3F;
+      border-color: #ffc107;
+      }
+   </style>
+   <div class="card investment">
+      <div class="card-header">
+         <strong class="card-title">INVESTMENT</strong>
+      </div>
+      <div class="card-body">
+         <div class="row">
+
+         <div id="price">
+            <div class="col-md-4">
+               <div class="plan">
+                  <div class="plan-inner">
+                     <div class="entry-title">
+                        <h3>EXCUTIVE</h3>
+                        <div class="price">$500
+                        </div>
+                     </div>
+                     <div class="entry-content">
+                        <ul>
+                           <li><strong>6%</strong> Referral Bonus</li>
+                           <li><strong>5%</strong> Binary bonus</li>
+                           
+                           <li><strong>5%</strong> Daily Profit</li>
+                           <li><strong>1 Year</strong> Period</li>
+                        </ul>
+                     </div>
+                     {% if data.investment == None or data.investment['package'] < 500%}
+                     <div class="btnss"> 
+                        <a href="/account/active-investment/1">Active Now</a>
+                     </div>
+                     {% endif %}
+                     {% if data.investment != None and data.investment['package'] == 500%}
+                        <span style="color: #7AC29A; font-weight: bold; padding: 36px 10px; float: left; width: 100%; font-size: 22px;">Activated</span>
+                        <div class="clearfix"></div>
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-md-4">
+               <div class="plan">
+                  <div class="plan-inner">
+                     <div class="entry-title">
+                        <h3>GOLD</h3>
+                        <div class="price">$2.000
+                        </div>
+                     </div>
+                     <div class="entry-content">
+                        <ul>
+                           <li><strong>6%</strong> Referral Bonus</li>
+                           <li><strong>5%</strong> Binary bonus</li>
+                           
+                           <li><strong>5%</strong> Daily Profit</li>
+                           <li><strong>1 Year</strong> Period</li>
+                        </ul>
+                     </div>
+                     {% if data.investment == None or data.investment['package'] < 2000%}
+                     <div class="btnss"> 
+                        <a href="/account/active-investment/2">Active Now</a>
+                     </div>
+                     {% endif %}
+                     {% if data.investment != None and data.investment['package'] == 2000%}
+                        <span style="color: #7AC29A; font-weight: bold; padding: 36px 10px; float: left; width: 100%; font-size: 22px;">Activated</span>
+                        <div class="clearfix"></div>
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-md-4">
+               <div class="plan">
+                  <div class="plan-inner">
+                     <div class="entry-title">
+                        <h3>SAPPHIRE</h3>
+                        <div class="price">$5.000
+                        </div>
+                     </div>
+                     <div class="entry-content">
+                        <ul>
+                           <li><strong>6%</strong> Referral Bonus</li>
+                           <li><strong>5%</strong> Binary bonus</li>
+                           
+                           <li><strong>6%</strong> Daily Profit</li>
+                           <li><strong>1 Year</strong> Period</li>
+                        </ul>
+                     </div>
+                     {% if data.investment == None or data.investment['package'] < 5000%}
+                     <div class="btnss"> 
+                        <a href="/account/active-investment/3">Active Now</a>
+                     </div>
+                     {% endif %}
+                     {% if data.investment != None and data.investment['package'] == 5000%}
+                        <span style="color: #7AC29A; font-weight: bold; padding: 36px 10px; float: left; width: 100%; font-size: 22px;">Activated</span>
+                        <div class="clearfix"></div>
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-md-4">
+               <div class="plan">
+                  <div class="plan-inner">
+                     <div class="entry-title">
+                        <h3>RUBY</h3>
+                        <div class="price">$10.000
+                        </div>
+                     </div>
+                     <div class="entry-content">
+                        <ul>
+                           <li><strong>6%</strong> Referral Bonus</li>
+                           <li><strong>5%</strong> Binary bonus</li>
+                           
+                           <li><strong>8%</strong> Daily Profit</li>
+                           <li><strong>1 Year</strong> Period</li>
+                        </ul>
+                     </div>
+                     {% if data.investment == None or data.investment['package'] < 10000%}
+                     <div class="btnss"> 
+                        <a href="/account/active-investment/4">Active Now</a>
+                     </div>
+                     {% endif %}
+                     {% if data.investment != None and data.investment['package'] == 10000%}
+                        <span style="color: #7AC29A; font-weight: bold; padding: 36px 10px; float: left; width: 100%; font-size: 22px;">Activated</span>
+                        <div class="clearfix"></div>
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="plan">
+                  <div class="plan-inner">
+                     <div class="entry-title">
+                        <h3>PLATINUM</h3>
+                        <div class="price">$30.000
+                        </div>
+                     </div>
+                     <div class="entry-content">
+                        <ul>
+                           <li><strong>6%</strong> Referral Bonus</li>
+                           <li><strong>5%</strong> Binary bonus</li>
+                           
+                           <li><strong>10%</strong> Daily Profit</li>
+                           <li><strong>1 Year</strong> Period</li>
+                        </ul>
+                     </div>
+                     {% if data.investment == None or data.investment['package'] < 30000%}
+                     <div class="btnss"> 
+                        <a href="/account/active-investment/5">Active Now</a>
+                     </div>
+                     {% endif %}
+                     {% if data.investment != None and data.investment['package'] == 30000%}
+                        <span style="color: #7AC29A; font-weight: bold; padding: 36px 10px; float: left; width: 100%; font-size: 22px;">Activated</span>
+                        <div class="clearfix"></div>
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div class="plan">
+                  <div class="plan-inner">
+                     <div class="entry-title">
+                        <h3>DIAMOND</h3>
+                        <div class="price">$50.000
+                        </div>
+                     </div>
+                     <div class="entry-content">
+                        <ul>
+                           <li><strong>6%</strong> Referral Bonus</li>
+                           <li><strong>5%</strong> Binary bonus</li>
+                           
+                           <li><strong>12%</strong> Daily Profit</li>
+                           <li><strong>1 Year</strong> Period</li>
+                        </ul>
+                     </div>
+                     {% if data.investment == None or data.investment['package'] < 50000%}
+                     <div class="btnss"> 
+                        <a href="/account/active-investment/6">Active Now</a>
+                     </div>
+                     {% endif %}
+                     {% if data.investment != None and data.investment['package'] == 50000%}
+                        <span style="color: #7AC29A; font-weight: bold; padding: 36px 10px; float: left; width: 100%; font-size: 22px;">Activated</span>
+                        <div class="clearfix"></div>
+                     {% endif %}
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+
+            
+
+            
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}

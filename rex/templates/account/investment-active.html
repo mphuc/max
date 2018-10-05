@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block title %}Please confirm Active Member{% endblock %}
+{% block js %}
+<script src="/static/assets/js/script.js"></script>
+<script src="/static/assets/js/getinfo.js"></script>
+<script src="/static/assets/js/lending.js"></script>
+<script src="/static/assets/js/main.js"></script>
+{% endblock %}
+{% block main %}
+<div class="section__content section__content--p30">
+   <style>
+      .btn-primary 
+      {
+      color: #fff;
+      background-color: #121734;
+      }
+      .btn-warning 
+      {
+      color: #212529;
+      background-color: #DDAF3F;
+      border-color: #ffc107;
+      }
+   </style>
+   <div class="card investment">
+      <div class="card-header">
+         <strong class="card-title">Please confirm Active Member </strong>
+      </div>
+      <div class="card-body">
+         <div class="row">
+            <div class="block">
+           
+            <div class="form-group">
+               <div class="row">
+                  <label class="col-md-12 control-label">Total Balance:<label style="color:green; font-size: 20px; padding:  5px ; height: 20px;">${{data.user.balance_wallet | format_usd}}</label></label>
+                 
+               </div>
+            </div>
+            
+            <div class="form-group">
+               <div class="row">
+                  
+                  <div class="col-md-6 col-md-push-3">
+                     <div class="plan">
+                        <div class="plan-inner">
+                           <div class="entry-title">
+                              <h3>{{data.name_package}}</h3>
+                              <div class="price" style="letter-spacing: -3px;">${{data.amount_package | format_usd}}
+                              </div>
+                           </div>
+                           <div class="entry-content">
+                              <ul>
+                                 <li><strong>6%</strong> Referral Bonus</li>
+                                 <li><strong>5%</strong> Binary bonus</li>
+                                 
+                                 <li><strong>
+                                  {% if data.amount_package <= 2000 %}  
+                                    5%
+                                  {% endif %}
+                                  {% if data.amount_package == 5000 %}  
+                                    6%
+                                  {% endif %}
+                                  {% if data.amount_package == 10000 %}  
+                                    8%
+                                  {% endif %}
+                                  {% if data.amount_package == 30000 %}  
+                                    10%
+                                  {% endif %}
+                                  {% if data.amount_package == 50000 %}  
+                                    12%
+                                  {% endif %}
+                                 </strong> Daily Profit</li>
+                                 <li><strong>1 Year</strong> Period</li>
+                              </ul>
+                           </div>
+                           {% if data.check_investment == True %}
+                              {% if data.check_balance == False %}
+                                 <div class="alert alert-danger alert-dismissable text-center" style="margin-top: 20px;">
+                                    <p>Account balance is not enough</p>
+                                 </div>
+                              {% endif %}
+                           {% endif %} 
+                           {% if data.check_investment == False %}
+                              <div class="alert alert-success alert-dismissable text-center" style="margin-top: 20px;">
+                                 
+                                 <p>Your investment has been activated. </p>
+                              </div>
+                           {% endif %}
+                           {% if data.check_investment == True %}
+                              {% if data.check_balance == True %}
+                                 <div class="btnss">
+                                    <a href="/account/active-investment-submit/{{data.package}}">Active Now</a>
+                                 </div>
+                              {% endif %}
+                           {% endif %}
+                        </div>
+                     </div>
+                  </div>
+
+                 
+                  <div class="clearfix"></div>
+                  <div style="margin:10px auto;width: 300px;">
+                     <center><a href="/account/investment-lists" class="button">Back Investment</a></center>
+                  </div>
+               </div>
+            </div>
+         </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+{% endblock %}

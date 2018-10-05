@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+   <head>
+       <title>{% block title %}{% endblock %} | Maxwell Global Trading</title>
+      
+      <link rel="shortcut icon" href="/static/home/logo.png" />
+      <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+      <style type="text/css">
+         img.wp-smiley,
+         img.emoji {
+         display: inline !important;
+         border: none !important;
+         box-shadow: none !important;
+         height: 1em !important;
+         width: 1em !important;
+         margin: 0 .07em !important;
+         vertical-align: -0.1em !important;
+         background: none !important;
+         padding: 0 !important;
+         }
+      </style>
+      <link rel='stylesheet' id='contact-form-7-css'  href='/static/home/plugins/contact-form-7/includes/css/styles5b31.css?ver=4.3.1' type='text/css' media='all' />
+      <link rel='stylesheet' id='rs-plugin-settings-css'  href='/static/home/plugins/revslider/rs-plugin/css/settings6fb0.css?rev=4.3.5&amp;ver=4.2.21' type='text/css' media='all' />
+      <style id='rs-plugin-settings-inline-css' type='text/css'>
+         .tp-caption.medium_grey {
+         position:absolute;
+         color:#fff;
+         text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
+         font-weight:700;
+         font-size:20px;
+         line-height:20px;
+         font-family:Arial;
+         padding:2px 4px;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         background-color:#888;
+         white-space:nowrap;
+         }
+         .tp-caption.small_text {
+         position:absolute;
+         color:#fff;
+         text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
+         font-weight:700;
+         font-size:14px;
+         line-height:20px;
+         font-family:Arial;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         }
+         .tp-caption.medium_text {
+         position:absolute;
+         color:#fff;
+         text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
+         font-weight:700;
+         font-size:20px;
+         line-height:20px;
+         font-family:Arial;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         }
+         .tp-caption.large_text {
+         position:absolute;
+         color:#fff;
+         text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
+         font-weight:700;
+         font-size:40px;
+         line-height:40px;
+         font-family:Arial;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         }
+         .tp-caption.very_large_text {
+         position:absolute;
+         color:#fff;
+         text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
+         font-weight:700;
+         font-size:60px;
+         line-height:60px;
+         font-family:Arial;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         letter-spacing:-2px;
+         }
+         .tp-caption.very_big_white {
+         position:absolute;
+         color:#fff;
+         text-shadow:none;
+         font-weight:800;
+         font-size:60px;
+         line-height:60px;
+         font-family:Arial;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         padding:0px 4px;
+         padding-top:1px;
+         background-color:#000;
+         }
+         .tp-caption.very_big_black {
+         position:absolute;
+         color:#000;
+         text-shadow:none;
+         font-weight:700;
+         font-size:60px;
+         line-height:60px;
+         font-family:Arial;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         padding:0px 4px;
+         padding-top:1px;
+         background-color:#fff;
+         }
+         .tp-caption.modern_medium_fat {
+         position:absolute;
+         color:#000;
+         text-shadow:none;
+         font-weight:800;
+         font-size:24px;
+         line-height:20px;
+         font-family:"Open Sans", sans-serif;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         }
+         .tp-caption.modern_medium_fat_white {
+         position:absolute;
+         color:#fff;
+         text-shadow:none;
+         font-weight:800;
+         font-size:24px;
+         line-height:20px;
+         font-family:"Open Sans", sans-serif;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         }
+         .tp-caption.modern_medium_light {
+         position:absolute;
+         color:#000;
+         text-shadow:none;
+         font-weight:300;
+         font-size:24px;
+         line-height:20px;
+         font-family:"Open Sans", sans-serif;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         }
+         .tp-caption.modern_big_bluebg {
+         position:absolute;
+         color:#fff;
+         text-shadow:none;
+         font-weight:800;
+         font-size:30px;
+         line-height:36px;
+         font-family:"Open Sans", sans-serif;
+         padding:3px 10px;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         background-color:#4e5b6c;
+         letter-spacing:0;
+         }
+         .tp-caption.modern_big_redbg {
+         position:absolute;
+         color:#fff;
+         text-shadow:none;
+         font-weight:300;
+         font-size:30px;
+         line-height:36px;
+         font-family:"Open Sans", sans-serif;
+         padding:3px 10px;
+         padding-top:1px;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         background-color:#de543e;
+         letter-spacing:0;
+         }
+         .tp-caption.modern_small_text_dark {
+         position:absolute;
+         color:#555;
+         text-shadow:none;
+         font-size:14px;
+         line-height:22px;
+         font-family:Arial;
+         margin:0px;
+         border-width:0px;
+         border-style:none;
+         white-space:nowrap;
+         }
+         .tp-caption.boxshadow {
+         -moz-box-shadow:0px 0px 20px rgba(0, 0, 0, 0.5);
+         -webkit-box-shadow:0px 0px 20px rgba(0, 0, 0, 0.5);
+         box-shadow:0px 0px 20px rgba(0, 0, 0, 0.5);
+         }
+         .tp-caption.black {
+         color:#000;
+         text-shadow:none;
+         }
+         .tp-caption.noshadow {
+         text-shadow:none;
+         }
+         .tp-caption.thinheadline_dark {
+         position:absolute;
+         color:rgba(0,0,0,0.85);
+         text-shadow:none;
+         font-weight:300;
+         font-size:30px;
+         line-height:30px;
+         font-family:"Open Sans";
+         background-color:transparent;
+         }
+         .tp-caption.thintext_dark {
+         position:absolute;
+         color:rgba(0,0,0,0.85);
+         text-shadow:none;
+         font-weight:300;
+         font-size:16px;
+         line-height:26px;
+         font-family:"Open Sans";
+         background-color:transparent;
+         }
+         .tp-caption.largeblackbg {
+         position:absolute;
+         color:#fff;
+         text-shadow:none;
+         font-weight:300;
+         font-size:50px;
+         line-height:70px;
+         font-family:"Open Sans";
+         background-color:#000;
+         padding:0px 20px;
+         -webkit-border-radius:0px;
+         -moz-border-radius:0px;
+         border-radius:0px;
+         }
+         .tp-caption.largepinkbg {
+         position:absolute;
+         color:#fff;
+         text-shadow:none;
+         font-weight:300;
+         font-size:50px;
+         line-height:70px;
+         font-family:"Open Sans";
+         background-color:#db4360;
+         padding:0px 20px;
+         -webkit-border-radius:0px;
+         -moz-border-radius:0px;
+         border-radius:0px;
+         }
+         .tp-caption.largewhitebg {
+         position:absolute;
+         color:#000;
+         text-shadow:none;
+         font-weight:300;
+         font-size:50px;
+         line-height:70px;
+         font-family:"Open Sans";
+         background-color:#fff;
+         padding:0px 20px;
+         -webkit-border-radius:0px;
+         -moz-border-radius:0px;
+         border-radius:0px;
+         }
+         .tp-caption.largegreenbg {
+         position:absolute;
+         color:#fff;
+         text-shadow:none;
+         font-weight:300;
+         font-size:50px;
+         line-height:70px;
+         font-family:"Open Sans";
+         background-color:#67ae73;
+         padding:0px 20px;
+         -webkit-border-radius:0px;
+         -moz-border-radius:0px;
+         border-radius:0px;
+         }
+         .tp-caption.excerpt {
+         font-size:36px;
+         line-height:36px;
+         font-weight:700;
+         font-family:Arial;
+         color:#ffffff;
+         text-decoration:none;
+         background-color:rgba(0, 0, 0, 1);
+         text-shadow:none;
+         margin:0px;
+         letter-spacing:-1.5px;
+         padding:1px 4px 0px 4px;
+         width:150px;
+         white-space:normal !important;
+         height:auto;
+         border-width:0px;
+         border-color:rgb(255, 255, 255);
+         border-style:none;
+         }
+         .tp-caption.large_bold_grey {
+         font-size:60px;
+         line-height:60px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(102, 102, 102);
+         text-decoration:none;
+         background-color:transparent;
+         text-shadow:none;
+         margin:0px;
+         padding:1px 4px 0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_thin_grey {
+         font-size:34px;
+         line-height:30px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(102, 102, 102);
+         text-decoration:none;
+         background-color:transparent;
+         padding:1px 4px 0px;
+         text-shadow:none;
+         margin:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.small_thin_grey {
+         font-size:18px;
+         line-height:26px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(117, 117, 117);
+         text-decoration:none;
+         background-color:transparent;
+         padding:1px 4px 0px;
+         text-shadow:none;
+         margin:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.lightgrey_divider {
+         text-decoration:none;
+         background-color:rgba(235, 235, 235, 1);
+         width:370px;
+         height:3px;
+         background-position:initial initial;
+         background-repeat:initial initial;
+         border-width:0px;
+         border-color:rgb(34, 34, 34);
+         border-style:none;
+         }
+         .tp-caption.large_bold_darkblue {
+         font-size:58px;
+         line-height:60px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(52, 73, 94);
+         text-decoration:none;
+         background-color:transparent;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_bg_darkblue {
+         font-size:20px;
+         line-height:20px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:rgb(52, 73, 94);
+         padding:10px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_bold_red {
+         font-size:24px;
+         line-height:30px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(227, 58, 12);
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_light_red {
+         font-size:21px;
+         line-height:26px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(227, 58, 12);
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_bg_red {
+         font-size:20px;
+         line-height:20px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:rgb(227, 58, 12);
+         padding:10px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_bold_orange {
+         font-size:24px;
+         line-height:30px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(243, 156, 18);
+         text-decoration:none;
+         background-color:transparent;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_bg_orange {
+         font-size:20px;
+         line-height:20px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:rgb(243, 156, 18);
+         padding:10px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.grassfloor {
+         text-decoration:none;
+         background-color:rgba(160, 179, 151, 1);
+         width:4000px;
+         height:150px;
+         border-width:0px;
+         border-color:rgb(34, 34, 34);
+         border-style:none;
+         }
+         .tp-caption.large_bold_white {
+         font-size:58px;
+         line-height:60px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:transparent;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_light_white {
+         font-size:30px;
+         line-height:36px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.mediumlarge_light_white {
+         font-size:34px;
+         line-height:40px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.mediumlarge_light_white_center {
+         font-size:34px;
+         line-height:40px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:#ffffff;
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px 0px 0px 0px;
+         text-align:center;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_bg_asbestos {
+         font-size:20px;
+         line-height:20px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:rgb(127, 140, 141);
+         padding:10px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.medium_light_black {
+         font-size:30px;
+         line-height:36px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(0, 0, 0);
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.large_bold_black {
+         font-size:58px;
+         line-height:60px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(0, 0, 0);
+         text-decoration:none;
+         background-color:transparent;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.mediumlarge_light_darkblue {
+         font-size:34px;
+         line-height:40px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(52, 73, 94);
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.small_light_white {
+         font-size:17px;
+         line-height:28px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:transparent;
+         padding:0px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.roundedimage {
+         border-width:0px;
+         border-color:rgb(34, 34, 34);
+         border-style:none;
+         }
+         .tp-caption.large_bg_black {
+         font-size:40px;
+         line-height:40px;
+         font-weight:800;
+         font-family:"Open Sans";
+         color:rgb(255, 255, 255);
+         text-decoration:none;
+         background-color:rgb(0, 0, 0);
+         padding:10px 20px 15px;
+         border-width:0px;
+         border-color:rgb(255, 214, 88);
+         border-style:none;
+         }
+         .tp-caption.mediumwhitebg {
+         font-size:30px;
+         line-height:30px;
+         font-weight:300;
+         font-family:"Open Sans";
+         color:rgb(0, 0, 0);
+         text-decoration:none;
+         background-color:rgb(255, 255, 255);
+         padding:5px 15px 10px;
+         text-shadow:none;
+         border-width:0px;
+         border-color:rgb(0, 0, 0);
+         border-style:none;
+         }
+         .tp-caption a {
+         color:#ff7302;
+         text-shadow:none;
+         -webkit-transition:all 0.2s ease-out;
+         -moz-transition:all 0.2s ease-out;
+         -o-transition:all 0.2s ease-out;
+         -ms-transition:all 0.2s ease-out;
+         }
+         .tp-caption a:hover {
+         color:#ffa902;
+         }
+      </style>
+      <link rel='stylesheet' id='jplayer-css'  href='/static/home/plugins/tmq-ventus-shortcodes/css/jplayer71f9.css?ver=4.2.21' type='text/css' media='screen' />
+      <link rel='stylesheet' id='tmq-icomoon-css'  href='/static/home/plugins/tmq-ventus-shortcodes/css/font/icomoon71f9.css?ver=4.2.21' type='text/css' media='screen' />
+      <!-- <link rel='stylesheet' id='google-font-css'  href='../fonts.googleapis.com/cssed45.css?family=Open+Sans%3A400%2C300%2C600%2C700%2C800&amp;ver=4.2.21' type='text/css' media='all' /> -->
+      <link rel='stylesheet' id='docs-css'  href='/static/home/themes/jt/assets/css/docs8a54.css?ver=1.0.0' type='text/css' media='all' />
+      <link rel='stylesheet' id='bootstrap-css'  href='/static/home/themes/jt/assets/css/bootstrap605a.css?ver=2.2.2' type='text/css' media='all' />
+      <link rel='stylesheet' id='flexslider-css'  href='/static/home/plugins/tmq-ventus-shortcodes/css/flexslider71f9.css?ver=4.2.21' type='text/css' media='screen' />
+      <link rel='stylesheet' id='dropkick-css'  href='/static/home/themes/jt/assets/css/dropkick8a54.css?ver=1.0.0' type='text/css' media='all' />
+      <link rel='stylesheet' id='fancybox-css'  href='/static/home/themes/jt/assets/css/jquery.fancybox4c71.css?ver=2.1.3' type='text/css' media='all' />
+      <link rel='stylesheet' id='isotope-css'  href='/static/home/themes/jt/assets/css/isotope4c71.css?ver=2.1.3' type='text/css' media='all' />
+      <link rel='stylesheet' id='prettify-css'  href='/static/home/themes/jt/assets/css/prettify5152.css?ver=1.0' type='text/css' media='all' />
+      <link rel='stylesheet' id='google-font-oswald-css'  href='/static/home/css/font.css' type='text/css' media='all' />
+      <link rel='stylesheet' id='superfish-css'  href='/static/home/themes/jt/assets/css/superfish8a54.css?ver=1.0.0' type='text/css' media='all' />
+      <link rel='stylesheet' id='ventus_style-css'  href='/static/home/themes/jt/style2846.css?ver=1.5.5' type='text/css' media='all' />
+      <link rel='stylesheet' id='woocommerce-css'  href='/static/home/themes/jt/assets/css/woocommerce5152.css?ver=1.0' type='text/css' media='all' />
+      <link rel='stylesheet' id='ot-dynamic-tmq_css-css'  href='/static/home/themes/jt/dynamic2846.css?ver=1.5.5' type='text/css' media='all' />
+      <link rel='stylesheet' id='responsive-css'  href='/static/home/themes/jt/assets/css/responsive8a54.css?ver=1.0.0' type='text/css' media='all' />
+      <link rel='stylesheet' id='wp-members-css'  href='/static/home/plugins/wp-members/css/wp-members-20139dfc.css?ver=3.1.7' type='text/css' media='all' />
+      <script type='text/javascript' src='/static/home/js/jquery/jquery4a80.js?ver=1.11.2'></script>
+      <script type='text/javascript' src='/static/home/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+      <script type='text/javascript' src='/static/home/plugins/revslider/rs-plugin/js/jquery.themepunch.plugins.min6fb0.js?rev=4.3.5&amp;ver=4.2.21'></script>
+      <script type='text/javascript' src='/static/home/plugins/revslider/rs-plugin/js/jquery.themepunch.revolution.min6fb0.js?rev=4.3.5&amp;ver=4.2.21'></script>
+      <script type='text/javascript' src='/static/home/plugins/tmq-ventus-shortcodes/js/jplayer/jquery.jplayer.min71f9.js?ver=4.2.21'></script>
+      <script type='text/javascript' src='/static/home/themes/jt/assets/js/jquery.isotope.min1712.js?ver=2013'></script>
+      <script type='text/javascript' src='/static/home/themes/jt/assets/js/prettify1712.js?ver=2013'></script>
+      <script type='text/javascript' src='/static/home/themes/jt/assets/js/caroufredsel.6.2.010df.js?ver=6.2.0'></script>
+      <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+      <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/static/home/wlwmanifest.xml" />
+      <meta name="generator" content="WordPress 4.2.21" />
+      <link rel='canonical' href='index.html' />
+      <link rel='shortlink' href='index.html' />
+      <style type="text/css" id="custom-background-css">
+         body.custom-background { background-color: #dddddd; }
+      </style>
+
+      {% block css %}{% endblock %}
+      
+   </head>
+   <body class="home page page-id-172 page-template page-template-slider page-template-slider-php custom-background w1170px  no-sidebar-page">
+      <div class="body-wrapper">
+         <div class="navbar navbar-inverse logo-menu-header navbar-fixed-top">
+            <div class="navbar-inner">
+               <div class="container">
+                  <a class="brand" href="/"><img src="/static/home/themes/jt/assets/images/logo.png" alt="Maxwell Global Trading">
+                  </a>
+                  <div class="nav-collapse collapse">
+                     <ul id="header-menu" class="sf-menu nav">
+                        <li id="menu-item-174" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-172 current_page_item menu-item-has-children menu-item-174 {% if data.menu == 'home' or data.menu == 'stock-index' %}
+                              nav-active
+                           {% endif %}"
+                        >
+                           <a href="/">HOME</a>
+                           <ul class="sub-menu">
+                              <li id="menu-item-740" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-740"><a href="/stock-index">Stock Index (Stock Market)</a></li>
+                           </ul>
+                        </li>
+                        <li id="menu-item-499" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-499 {% if data.menu == 'product' or data.menu == 'foreign-exchange' or data.menu == 'trading-rule' %}
+                              nav-active
+                           {% endif %}">
+                           <a href="/product">PRODUCT</a>
+                           <ul class="sub-menu">
+                              <li id="menu-item-741" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-741"><a href="/product/foreign-exchange">Foreign Exchange</a></li>
+                              <li id="menu-item-523" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-523"><a href="/product/trading-rule">TRADING RULE</a></li>
+                           </ul>
+                        </li>
+                        <li id="menu-item-532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-532 {% if data.menu == 'platform' %}
+                              nav-active
+                           {% endif %}" ><a href="/platform">PLATFORM</a></li>
+                        <li id="menu-item-823" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-823 {% if data.menu == 'client-area' or data.menu == 'contact-us' %}
+                              nav-active
+                           {% endif %}">
+                           <a href="/client-area">CLIENT AREA</a>
+                           <ul class="sub-menu">
+                              <li id="menu-item-798" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-798"><a href="/contact-us">Contact Us</a></li>
+                              <li id="menu-item-824" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-824"><a href="/auth/register-web">Registration Web</a></li>
+                              <li id="menu-item-816" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-816"><a href="/auth/login">Login</a></li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <!--/.nav-collapse -->
+               </div>
+            </div>
+         </div>
+
+
+
+      {% block main %}{% endblock %}
+
+
+      <div class="footer">
+            <div class="container">
+               <div class="row-fluid">
+                  <div class="span7">
+                     <p>Copyright 2013 Ventus Theme</p>
+                  </div>
+                  <div class="span5">
+                     <ul class="social-icons">
+                        <a rel="alternate" href="http://www.twitter.com/iman82gm" title="Twitter"><i class="icomoon-twitter"></i></a>
+                        <a rel="alternate" href="http://www.facebook.com/#" title="Facebook"><i class="icomoon-facebook"></i></a>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <a href="#navigation" rel="alternate" title="Back to top" class="gototop up"><img src="/static/home/themes/jt/assets/img/icon_up.png" alt=""/></a>
+         </div>
+         <script type='text/javascript' src='/static/home/plugins/contact-form-7/includes/js/jquery.form.mind03d.js?ver=3.51.0-2014.06.20'></script>
+         <script type='text/javascript'>
+            /* <![CDATA[ */
+            var _wpcf7 = {"loaderUrl":"https:\/\/www.maxwellglobaltrading.com\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+            /* ]]> */
+         </script>
+         <script type='text/javascript' src='/static/home/plugins/contact-form-7/includes/js/scripts5b31.js?ver=4.3.1'></script>
+         <script type='text/javascript' src='/static/home/themes/jt/assets/js/bootstrap605a.js?ver=2.2.2'></script>
+         <script type='text/javascript' src='/static/home/themes/jt/assets/js/tinynav4963.js?ver=1.1'></script>
+         <script type='text/javascript' src='/static/home/plugins/tmq-ventus-shortcodes/js/jquery.flexslider-min71f9.js?ver=4.2.21'></script>
+         <script type='text/javascript' src='/static/home/themes/jt/assets/js/jquery.fancybox4c71.js?ver=2.1.3'></script>
+         <script type='text/javascript' src='/static/home/js/hoverIntent.minc245.js?ver=1.8.1'></script>
+         <script type='text/javascript' src='/static/home/themes/jt/assets/js/superfish1712.js?ver=2013'></script>
+         <script type='text/javascript'>
+            /* <![CDATA[ */
+            var tmq_script_vars = {"nicescroll":"smooth","nav_choose_text":"GO TO...","small_header":"on"};
+            /* ]]> */
+         </script>
+         <script type='text/javascript' src='/static/home/themes/jt/assets/js/custom2846.js?ver=1.5.5'></script>
+         <script type='text/javascript' src='/static/home/themes/jt/assets/js/jquery.nicescroll.min6b25.js?ver=2.1.4'></script>
+
+      </div>
+
+
+     
+         
+      
+
+      
+   </body>
+</html>

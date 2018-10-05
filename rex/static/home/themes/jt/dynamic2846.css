@@ -1,0 +1,207 @@
+/* BEGIN tmq_css */
+/* =========================================== 
+    Unlimited Colors Setting                   
+ =========================================== */
+
+.nav-active:after, .side-time, .tagcloud a:hover, .features:hover .features-circle, .features-active .features-circle, th {
+	background: #3cc4bb;
+	background: rgb(60,196,187);
+}
+.sub-footer a:hover, .widget-side a:hover, .portfolio_item .heading a, .price {
+	color: #3cc4bb;
+	color: rgb(60,196,187);
+}
+.nav-active-arrow {
+	border-top:22px solid #3cc4bb;
+	border-top:22px solid rgb(60,196,187);
+}
+/* MAIN BUBBLE */
+.bubble, .title-bubble, .btn-prime, .slider-frame {
+	text-shadow: 1px 1px #3cc4bb !important;
+	background: #3cc4bb; /* Old browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3cc4bb', endColorstr='#3cc4bb',GradientType=0 ) !important; /* IE6-9 */
+	background: -ms-linear-gradient(top, #3cc4bb 0%,#3cc4bb 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, #3cc4bb 0%,#3cc4bb 100%); /* W3C */
+	text-shadow: 1px 1px rgb(30,149,121) !important;
+	background: rgb(76,218,210); /* Old browsers */
+	background: -moz-linear-gradient(top, rgb(76,218,210) 0%, rgb(60,196,187) 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(76,218,210)), color-stop(100%,rgb(60,196,187))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgb(76,218,210) 0%,rgb(60,196,187) 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgb(76,218,210) 0%,rgb(60,196,187) 100%) !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgb(76,218,210) 0%,rgb(60,196,187) 100%) !important; /* IE10+ */
+	background: linear-gradient(to bottom, rgb(76,218,210) 0%,rgb(60,196,187) 100%); /* W3C */
+}
+.bubble h4, .title-bubble h5 {
+	text-shadow: 1px 1px #3cc4bb;
+	text-shadow: 1px 1px rgb(30,149,121);
+}
+.bubble-triangle {
+	border-top:50px solid #3cc4bb;
+	border-top:50px solid rgb(60,196,187);
+}
+.title-bubble-triangle {
+	border-top:30px solid #3cc4bb;
+	border-top:30px solid rgb(60,196,187);
+}
+.features:hover .features-circle, .features-active .features-circle {
+	box-shadow:         inset 0 0 15px #3cc4bb;
+	-moz-box-shadow:    inset 0 0 15px rgb(30,149,121);
+	-webkit-box-shadow: inset 0 0 15px rgb(30,149,121);
+	box-shadow:         inset 0 0 15px rgb(30,149,121);
+}
+.content-image-overlay {
+	background:  url(../../../../maxwellglobaltrading/wp-content/themes/jt/assets/img/image_overlay.html);
+	background-size: 0px 0px;
+}
+.content-image-overlay:hover {
+	background:  url(../../../../maxwellglobaltrading/wp-content/themes/jt/assets/img/image_overlay.html);
+	background-size: 48px 48px;
+}
+.content-image-overlay i {
+	background:  #3cc4bb;
+	background:  rgb(60,196,187);
+}
+.dropcap.vivid {
+	background:  #3cc4bb;
+	background:  rgb(60,196,187);
+	color: #fff;
+}
+.dropcap.light {
+	background: #fff;
+	color: #3cc4bb;
+	color: rgb(60,196,187);
+}
+.dropcap.dark {
+	background: #444;
+	color: #fff;
+}
+.jp-play-bar, .jp-volume-bar-value {
+	background-color: #3cc4bb;
+	background-color: rgb(30,149,121);
+}
+	.light-header .header-socials a:hover {
+		background-color: #3cc4bb;
+		background-color: rgb(60,196,187);
+	}
+	.top-bar.dark-header {
+		background-color: #3cc4bb;
+		background-color: rgb(60,196,187);
+	}
+	.search-heading a {
+		color: #3cc4bb;
+		color: rgb(60,196,187);
+	}
+
+	/* WooCommerce */
+	.product-remove a, .product .onsale, .product .add_to_cart_button:hover, .woocommerce-message:before {
+		background: #3cc4bb !important;
+		background: rgb(60,196,187) !important;
+	}
+	.shipping-calculator-button, .product-name a, .woocommerce ul.products li.product .price, .woocommerce-page ul.products li.product .price {
+		color: #3cc4bb !important;
+		color: rgb(60,196,187) !important;
+	}
+	.woocommerce-message {
+		border-top-color: #3cc4bb !important;;
+		border-top-color: rgb(60,196,187) !important;;
+	}
+/* Light header */
+	.navbar-inner {
+		background: #f7f7f7;
+	}
+	.sf-menu > li > a {
+		background: none !important;
+		color: #444 !important;
+		text-shadow: none !important;
+	}
+	.sf-menu > li:hover, .sf-menu > li:hover > a, .sf-menu > .current-menu-item a {
+		background: #3cc4bb !important;
+		background: rgb(60,196,187) !important;
+	}
+	.sf-menu > .nav-active > a, .sf-menu > .current-menu-item a {
+		color: #444 !important;
+		background: #efefef !important;
+	}
+	.navbar ul > li:hover a{
+		color: #fff !important;
+	}
+	.navbar ul {
+		font-family: "open sans";
+		font-size: 13px;
+		line-height: ;
+	}
+/* Homepage Slider Area Background */
+	/*.home .slider {
+		background-image: url('../../uploads/2015/07/cropped-Brosure2.html');
+		background-size: cover;
+		background-repeat: no-repeat;
+	}*/
+	.home .bubble {
+		-webkit-box-shadow: 0 0 28px 2px rgba(0,0,0,0.4);
+		-moz-box-shadow: 0 0 28px 2px rgba(0,0,0,0.4);
+		box-shadow: 0 0 28px 2px rgba(0,0,0,0.4);
+	}
+	.home .footer-bubble .bubble {
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+/* Remove Triangles */
+	.wpb_teaser_grid.wpb_carousel:after, .content-bubble-triangle, .bubble-triangle, .features-triangle, .nav-active-arrow, .title-bubble-triangle {
+		border: 0 !important;
+	}
+/* slider area height for no bubble */
+	.home .slider-area {
+		margin-bottom: 40px;
+	}
+/* slider area height for no bubble */
+	:not(.home) .slider-area {
+		margin-bottom: 40px;
+	}
+/* Layout Width */
+	.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+		max-width: 978px;
+	}
+/* Google Font */
+	body, input, button, select, textarea {
+		font-family: open sans !important;
+	}
+/* Sticky Menu and Top Contact Bar */
+	.slider {
+		margin-top: 130px;
+	}
+	.admin-bar .slider {
+		margin-top: 92px;
+	}
+/* Default Font */
+	body, p, label, input, textarea, .breadcrumb li, .nav-tabs .active a, .nav-tabs li a, .nav-list li a, .sub-footer .latest-posts a, .sub-footer input, .sub-footer textarea, .footer p, td, .accordion-group, .widget_nav_menu .menu li a, .widget-side a, .tag-cloud a, .tagcloud a, .sub-footer ul li a {
+		font-size: 12px !important;
+	}
+/* Logo Positioning */
+	.brand img {
+		margin-top: 32px;
+	}
+/* Headings Font Setting */
+	h1, h2, h3, h4, h5, h6 {
+		font-family: "open sans", "sans serif";
+	}
+	h1 {
+		font-size: 38px;
+	}
+	h2 {
+		font-size: 24px;
+	}
+	h3 {
+		font-size: 22px;
+	}
+	h4 {
+		font-size: 18px;
+	}
+	h5 {
+		font-size: 15px;
+	}
+	h6 {
+		font-size: 12px;
+	}
+
+/* END tmq_css */

@@ -1,0 +1,168 @@
+/* ================================
+	General
+================================ */
+
+/* VIDEO EMBED */
+.vid, .aud {
+	border: 0;
+}
+
+/* Media Player */
+.media-large {
+	height: 50px;
+}
+.media-medium {
+	height: 40px;
+}
+.media-mini {
+	height: 30px;
+}
+.media-player {
+	padding: 0;
+	margin: 0 0 40px 0;
+	width: 100%;
+}
+.media_player i[class^="icomoon"] {
+	font-size: 60% !important;
+}
+
+.media-large .jp-play, .media-large .jp-pause, .media-large .jp-stop {
+	width: 50px;
+	height: 20px;
+	padding: 15px 0px;
+}
+.media-medium .jp-play, .media-medium .jp-pause, .media-medium .jp-stop {
+	width: 40px;
+	height: 20px;
+	padding: 10px 0px;
+}
+.media-mini .jp-play, .media-mini .jp-pause, .media-mini .jp-stop {
+	width: 30px;
+	height: 20px;
+	padding: 5px 0px;
+}
+.jp-play, .jp-pause, .jp-stop {
+	text-align: center;
+	float: left;
+	font-size: 16px;	
+}
+.media-large .jp-mute, .media-large .jp-unmute, .media-large .jp-volume-max {
+	width: 50px;
+	height: 20px;
+	padding: 15px 0px;
+}
+.media-medium .jp-mute, .media-medium .jp-unmute, .media-medium .jp-volume-max {
+	width: 40px;
+	height: 20px;
+	padding: 10px 0px;
+}
+.media-mini .jp-mute, .media-mini .jp-unmute, .media-mini .jp-volume-max {
+	width: 30px;
+	height: 20px;
+	padding: 5px 0px;
+}
+.jp-mute, .jp-unmute, .jp-volume-max {
+	border-left: 0px solid #dddddd;
+	text-align: center;
+	float: right;
+	font-size: 100%;		
+}
+.media-large .jp-current-time, .media-large .jp-duration {
+	width: 50px;
+	height: 24px;
+	padding: 13px 0;
+}
+.media-medium .jp-current-time, .media-medium .jp-duration {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+}
+.media-mini .jp-current-time, .media-mini .jp-duration {
+	width: 50px;
+	height: 20px;
+	padding: 5px 0;
+}
+.jp-current-time, .jp-duration {
+	text-align: center;
+}
+.jp-play-bar, .jp-volume-bar-value {
+	height: 10px;
+	background-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQIW2NkQAWSjEh8SSD7OUwAzAFJggTgHJAAAEkuAx5OdRJCAAAAAElFTkSuQmCC');
+	background-color: #000000;
+}
+.jp-seek-bar, .jp-volume-bar {
+	height: 10px;
+}
+.media-large .progress-nav {
+	padding: 19px 100px 20px 100px;
+}
+.media-medium .progress-nav {
+	padding: 15px 165px 15px 85px;
+}
+.media-mini .progress-nav {
+	padding: 9px 150px 10px 80px;
+}
+.progress-nav {
+	width: auto;
+	height: 10px;
+	/*box-sizing: border-box;*/
+}
+.media-large .volume-nav {
+	width: 50px;
+	padding: 19px 0px 20px 0px;
+}
+.media-mini .volume-nav {
+	width: 40px;
+	padding: 9px 0px 10px 0px;
+}
+.media-medium .volume-nav {
+	width: 40px;
+	padding: 15px 0px 15px 0px;
+}
+.volume-nav {
+	height: 10px;
+}
+.video-player {
+	background-color: #000000;
+	overflow: hidden;
+}
+.video-player video {
+	margin-left: -1px;
+	margin-bottom: -5px !important;
+}
+/*HIDE SOME ELEMENTS IN LARGE VIEW*/
+.media-large .volume-nav, .media-large .jp-volume-max {
+	display: none !important;
+}
+.media-medium.media-audio.shadow, .media-mini.media-audio.shadow {
+	box-shadow: 3px 5px 10px rgba(0,0,0,0.3);
+}
+.media-medium.media-audio.shadow:before, .media-medium.media-audio.shadow:after, .media-mini.media-audio.shadow:before, .media-mini.media-audio.shadow:after {
+	width: 0;
+	height: 0;
+}
+/* dynamics */
+.media-body a {
+	color: #bababa;
+}
+.media-player a {
+	color: #e8e8e8;
+}
+.media-player a:hover {
+	color: #fafafa;
+}
+.media-dark {
+	background-color: #444444;
+}
+.media-dark {
+	background-color: #444;
+}
+.jp-seek-bar, .jp-volume-bar {
+	border-bottom: 1px solid #bababa;
+	background-color: #666;
+}
+.jp-current-time, .jp-duration {
+	color: #fafafa;
+}
+
+/* END Media Player */
