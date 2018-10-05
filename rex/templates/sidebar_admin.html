@@ -210,14 +210,31 @@
         <li class="active">
             <a href="/admin/f1-earnings">
               
-               <p>F1 Earnings</p>
+               <p>History F1 Earnings</p>
             </a>
          </li>
      {% else %}
        <li>
             <a href="/admin/f1-earnings">
                
-               <p>F1 Earnings</p>
+               <p>History F1 Earnings</p>
+            </a>
+         </li>
+     {% endif %}
+
+
+     {% if data.menu == 'global-bonus' %}
+        <li class="active">
+            <a href="/admin/global-bonus">
+              
+               <p>History Global Bonus</p>
+            </a>
+         </li>
+     {% else %}
+       <li>
+            <a href="/admin/global-bonus">
+               
+               <p>History Global Bonus</p>
             </a>
          </li>
      {% endif %}

@@ -812,7 +812,7 @@ def get_percent_generations(customer_id,amount_receve):
     if customers_f1 is not None:
         if int(customers_f1['level']) > 0:
             count_f1 = db.users.find({'$and' :[{'p_node': customers_f1['customer_id']},{"level": { "$gt": 0 }}]}).count()
-            print count_f1
+            
             percent = 0
             if int(count_f1) >=3 and float(customers_f1['total_node']) >= 300000:
                 percent = 5

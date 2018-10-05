@@ -135,6 +135,194 @@ def Profitf1_earnings():
         }
     return render_template('admin/f1_earnings.html', data=data)
 
+def get_level_global():
+    customers = db.users.find({"total_node": { "$gte": 300000 }})
+    for x in customers:
+        if int(x['level']) > 0:
+            count_f1 = db.users.find({'$and' :[{'p_node': x['customer_id']},{"level": { "$gt": 0 }}]}).count()
+            
+            level = 0
+            if int(count_f1) >=2 and float(x['total_node']) >= 100000:
+                level = 1
+            if int(count_f1) >=3 and float(x['total_node']) >= 300000:
+                level = 2
+            if int(count_f1) >=5 and float(x['total_node']) >= 500000:
+                level = 3
+            if int(count_f1) >=8 and float(x['total_node']) >= 1000000:
+                level = 4
+            if int(count_f1) >=10 and float(x['total_node']) >= 2000000:
+                level = 5
+
+            db.users.update({'_id' : ObjectId(x['_id'])},{'$set' : {'level_global' : level}})
+    return True
+@admin1_ctrl.route('/global-bonus', methods=['GET', 'POST'])
+def Profitglobal_bonus():
+    error = None
+    if session.get('logged_in_admin') is None:
+        return redirect('/admin/login')
+    query = db.historys.find({'type': {'$regex': 'global_bonus'}})
+    get_level_global()
+    data ={
+            'menu' : 'global-bonus',
+            'history': query
+        }
+    return render_template('admin/global_bonus.html', data=data)
+
+def SaveHistory(uid, user_id, username, amount, types, wallet, detail, rate, txtid):
+    data_history = {
+        'uid' : uid,
+        'user_id': user_id,
+        'username' : username,
+        'amount': float(amount),
+        'type' : types,
+        'wallet': wallet,
+        'date_added' : datetime.utcnow(),
+        'detail': detail,
+        'rate': rate,
+        'txtid' : txtid,
+        'amount_sub' : 0,
+        'amount_add' : 0,
+        'amount_rest' : 0
+    }
+    db.historys.insert(data_history)
+    return True
+@admin1_ctrl.route('/global-bonus-submit', methods=['GET', 'POST'])
+def global_bonus_submit():
+    error = None
+    if session.get('logged_in_admin') is None:
+        return redirect('/admin/login')
+    if request.method == 'POST':
+        number = request.form['number']
+        
+        level_1 = db.users.find({"level_global": 1})
+        count_level_1 = level_1.count()
+        if count_level_1 > 0:
+            amount_recevie_1 = (float(number)*0.03)/count_level_1
+                
+            for x in level_1:
+               
+                commission = round(amount_recevie_1,2)
+                
+                global_wallet = float(x['global_wallet'])
+                new_global_wallet = float(global_wallet) + float(commission)
+                new_global_wallet = float(new_global_wallet)
+
+                total_earn = float(x['total_earn'])
+                new_total_earn = float(total_earn) + float(commission)
+                new_total_earn = float(new_total_earn)
+
+                balance_wallet = float(x['balance_wallet'])
+                new_balance_wallet = float(balance_wallet) + float(commission)
+                new_balance_wallet = float(new_balance_wallet)
+
+                db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
+                detail = 'Get 3% global bonus'
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                
+
+        level_2 = db.users.find({"level_global": 2})
+        count_level_2 = level_2.count()
+        if count_level_2 > 0:
+            amount_recevie_2 = (float(number)*0.03)/count_level_2
+                
+            for x in level_2:
+                print x['username']
+                commission = round(amount_recevie_2,2)
+                
+                global_wallet = float(x['global_wallet'])
+                new_global_wallet = float(global_wallet) + float(commission)
+                new_global_wallet = float(new_global_wallet)
+
+                total_earn = float(x['total_earn'])
+                new_total_earn = float(total_earn) + float(commission)
+                new_total_earn = float(new_total_earn)
+
+                balance_wallet = float(x['balance_wallet'])
+                new_balance_wallet = float(balance_wallet) + float(commission)
+                new_balance_wallet = float(new_balance_wallet)
+
+                db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
+                detail = 'Get 3% global bonus'
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                
+
+        level_3 = db.users.find({"level_global": 3})
+        count_level_3 = level_3.count()
+        if count_level_3 > 0:
+            amount_recevie_3 = (float(number)*0.03)/count_level_3
+                
+            for x in level_3:
+                print x['username']
+                commission = round(amount_recevie_3,2)
+                
+                global_wallet = float(x['global_wallet'])
+                new_global_wallet = float(global_wallet) + float(commission)
+                new_global_wallet = float(new_global_wallet)
+
+                total_earn = float(x['total_earn'])
+                new_total_earn = float(total_earn) + float(commission)
+                new_total_earn = float(new_total_earn)
+
+                balance_wallet = float(x['balance_wallet'])
+                new_balance_wallet = float(balance_wallet) + float(commission)
+                new_balance_wallet = float(new_balance_wallet)
+
+                db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
+                detail = 'Get 3% global bonus'
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                
+        level_4 = db.users.find({"level_global": 4})
+        count_level_4 = level_4.count()
+        if count_level_4 > 0:
+            amount_recevie_4 = (float(number)*0.04)/count_level_4
+                
+            for x in level_4:
+                print x['username']
+                commission = round(amount_recevie_4,2)
+                
+                global_wallet = float(x['global_wallet'])
+                new_global_wallet = float(global_wallet) + float(commission)
+                new_global_wallet = float(new_global_wallet)
+
+                total_earn = float(x['total_earn'])
+                new_total_earn = float(total_earn) + float(commission)
+                new_total_earn = float(new_total_earn)
+
+                balance_wallet = float(x['balance_wallet'])
+                new_balance_wallet = float(balance_wallet) + float(commission)
+                new_balance_wallet = float(new_balance_wallet)
+
+                db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
+                detail = 'Get 4% global bonus'
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                
+        level_5 = db.users.find({"level_global": 5})
+        count_level_5 = level_5.count()
+        if count_level_5 > 0:
+            amount_recevie_5 = (float(number)*0.05)/count_level_5
+                
+            for x in level_5:
+                print x['username']
+                commission = round(amount_recevie_5,2)
+                
+                global_wallet = float(x['global_wallet'])
+                new_global_wallet = float(global_wallet) + float(commission)
+                new_global_wallet = float(new_global_wallet)
+
+                total_earn = float(x['total_earn'])
+                new_total_earn = float(total_earn) + float(commission)
+                new_total_earn = float(new_total_earn)
+
+                balance_wallet = float(x['balance_wallet'])
+                new_balance_wallet = float(balance_wallet) + float(commission)
+                new_balance_wallet = float(new_balance_wallet)
+
+                db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
+                detail = 'Get 4% global bonus'
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                
+    #return redirect('/admin/global-bonus')
+
 @admin1_ctrl.route('/notifications', methods=['GET', 'POST'])
 def notifications():
     error = None

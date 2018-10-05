@@ -404,6 +404,8 @@ def create_user_tree(sponsor,position,p_binary,username,country,email,password):
     'max_out_day' : 0,
     'max_out_package' : 0,
     'status_verify' : 0,
+    'level_global' : 0,
+    'global_wallet' : 0,
     'personal_info' : { 
       'firstname' : '',
       'lastname' : '',
@@ -481,6 +483,8 @@ def create_user(sponsor,username,country,email,password):
     'max_out_package' : 0,
     'f1earnings_wallet' : 0,
     'status_verify' : 0,
+    'level_global' : 0,
+    'global_wallet' : 0,
     'personal_info' : { 
       'firstname' : '',
       'lastname' : '',
