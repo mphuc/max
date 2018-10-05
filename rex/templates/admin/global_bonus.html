@@ -1,0 +1,82 @@
+{% extends "layout_admin.html" %}
+{% block title %}Global Bonus{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+  
+
+{% block main %}
+
+    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="content">
+
+                                    <h4 class="title">History Global Bonus</h4>
+                                    <div class="toolbar">
+                                    <form method="POST" action="/admin/global-bonus-submit" style="margin-bottom: 50px;">
+                                        <div class="row" style="margin-top: 15px;">
+                                          <label class="col-md-2 control-label" for="Comm_Money">Total Global <span class="text-danger">*</span></label>
+                                          <div class="col-md-6">
+                                             <input type="text" required="true" placeholder="Total Global" name="number" class="form-control" >
+                                          </div>
+                                          <div class="col-md-3">
+                                            <button type="submit" name="submit_transfer" class="btn btn-effect-ripple btn-primary" style="overflow: hidden; position: relative;">Submit</button>
+                                            </div>
+                                       </div>
+                                    </form>
+                                        
+                                       
+                                        <!--        Here you can write extra buttons/actions for the toolbar              -->
+                                    </div>
+                                   <div class="col-md-8 col-md-push-2 table_investment">    
+
+               <div class="input-group input-daterange">
+                  <input type="text" id="min-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="From:">
+                  <div class="input-group-addon">To</div>
+                  <input type="text" id="max-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="To:">
+               </div>
+            </div>
+                                    <div class="material-datatables">
+                                        <table id="datatables_investment" class="table table-bordered" style="width:100%;cellspacing:0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>DateTime</th>
+                                                    <th>Username</th>
+                                                    <th>Amount</th>
+                                                    <th>Detail</th>
+                                                                            
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for item in data.history %}
+                                                <tr>
+                                                    <td></td>
+                                                    <td>{{ item.date_added | format_date }}</td>
+                                                    <td><a href="/admin/customer-detail/{{ item.user_id}}">{{ item.username}}</a></td>
+                                                    <td>{{ item.amount | number_format}}</td>
+                                                    <td>{{ item.detail}}</td>
+                                                    
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th colspan="3" style="text-align:right">Total:</th>
+                                                    <th colspan="2"></th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- end content-->
+                            </div>
+                            <!--  end card  -->
+                        </div>
+                        <!-- end col-md-12 -->
+                    </div>
+
+{% endblock %}
+

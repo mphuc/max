@@ -217,7 +217,7 @@ def global_bonus_submit():
 
                 db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
                 detail = 'Get 3% global bonus'
-                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global_bonus', 'USD', detail, '', '')
                 
 
         level_2 = db.users.find({"level_global": 2})
@@ -243,7 +243,7 @@ def global_bonus_submit():
 
                 db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
                 detail = 'Get 3% global bonus'
-                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global_bonus', 'USD', detail, '', '')
                 
 
         level_3 = db.users.find({"level_global": 3})
@@ -269,7 +269,7 @@ def global_bonus_submit():
 
                 db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
                 detail = 'Get 3% global bonus'
-                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global_bonus', 'USD', detail, '', '')
                 
         level_4 = db.users.find({"level_global": 4})
         count_level_4 = level_4.count()
@@ -294,7 +294,7 @@ def global_bonus_submit():
 
                 db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
                 detail = 'Get 4% global bonus'
-                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global_bonus', 'USD', detail, '', '')
                 
         level_5 = db.users.find({"level_global": 5})
         count_level_5 = level_5.count()
@@ -319,9 +319,9 @@ def global_bonus_submit():
 
                 db.users.update({ "_id" : ObjectId(x['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'global_wallet' :new_global_wallet } })
                 detail = 'Get 4% global bonus'
-                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global', 'USD', detail, '', '')
+                SaveHistory(x['customer_id'],x['_id'],x['username'], commission, 'global_bonus', 'USD', detail, '', '')
                 
-    #return redirect('/admin/global-bonus')
+    return redirect('/admin/global-bonus')
 
 @admin1_ctrl.route('/notifications', methods=['GET', 'POST'])
 def notifications():
