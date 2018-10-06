@@ -96,9 +96,14 @@ function click_node_add(p_binary, positon) {
         positon = 2;
     p_node = $('#uid_customer').val();
     link += '/' + positon + '/' + p_binary + '/' + p_node;
-    //var link = '/user/register'+ '/' + p_binary;
-    location.href = link;
-    /*var html = `
+    
+    //location.href = link;
+
+    $('#myModalss #add_tree_personal').attr('href','/account/add-tree/'+p_binary+'/'+positon);
+    $('#myModalss #add_new_tree_personal').attr('href',link);
+    $('#myModalss').modal('show');
+    /*link = '';
+    var html = `
         <div id="myModal" class="modal left fade" role="dialog">
         <div class="modal-dialog">
         <div class="modal-content">

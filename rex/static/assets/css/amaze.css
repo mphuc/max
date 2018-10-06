@@ -11970,6 +11970,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   font-family: 'Lato', Arial, sans-serif;
   border: 1px solid #dcd9d9;
+  min-height: 438px;
 }
 
 .investment .plan-inner {

@@ -15,11 +15,11 @@
     <div class="overlay">
 
   </div>
-    {% if data.user['level'] > 0 %}
+    <!-- {% if data.user['level'] > 0 %}
       <div class="text-center">
         <img src="/static/img/level/{{data.user['level'] | format_int}}.png" alt="" style=" width: 95px; margin: 5px auto">
       </div>
-    {% endif %}
+    {% endif %} -->
       <ul class="nav">
       
       {% if data.menu == 'dashboard' %}
@@ -189,6 +189,7 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu" >
             <li><a href="/user/change-password"><p>Change password</p></a></li>
+            <li><a href="/user/my-profile"><p>Profile</p></a></li>
             <!-- <li><a href="/user/verify-account"><p>Verify account</p></a></li> -->
             <li><a href="/user/two-factor-auth"><p>Two-factor Auth</p></a></li>
           </ul>
@@ -201,6 +202,7 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu" >
             <li><a href="/user/change-password"><p>Change password</p></a></li>
+            <li><a href="/user/my-profile"><p>Profile</p></a></li>
             <!-- <li><a href="/user/verify-account"><p>Verify account</p></a></li> -->
             <li><a href="/user/two-factor-auth"><p>Two-factor Auth</p></a></li>
           </ul>

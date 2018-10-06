@@ -34,12 +34,12 @@ def refferal():
 
 	get_id_tree_package = get_id_tree_node_package(uid)
 
-	f1_noactive = db.User.find({'$and' :[{'p_node': uid},{"level": 0}]})
-	f1_active_no_tree = db.User.find({'$and' :[{'p_node': uid},{'p_binary' : ''},{"level": { "$gt": 0 }}]})
-	f1_active_tree = db.User.find({'$and' :[{'p_node': uid},{ 'p_binary': {'$ne' : ''}},{"level": { "$gt": 0 }}]})
+	
+	f1_active_no_tree = db.User.find({'$and' :[{'p_node': uid},{'p_binary' : ''}]})
+	f1_active_tree = db.User.find({'$and' :[{'p_node': uid},{ 'p_binary': {'$ne' : ''}}]})
 
 	data ={
-		'f1_noactive' : f1_noactive,
+		
 		'f1_active_no_tree' : f1_active_no_tree,
 		'f1_active_tree' : f1_active_tree,
 		'title': 'my-network',

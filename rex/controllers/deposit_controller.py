@@ -898,17 +898,17 @@ def AddTreeSubmit(p_binary,position):
                 db.users.update({ "customer_id" : p_binary }, { '$set': { 'right': id_user} })
                 db.users.update({ "customer_id" : id_user }, { '$set': { 'p_binary': p_binary} })
         
-        if check_id_user['p_binary'] == '':
-            # mo ra
+        # if check_id_user['p_binary'] == '':
+        #     # mo ra
             
-            #chay hai nhanh
-            #+ float(check_id_user['total_amount_left']) + float(check_id_user['total_amount_right'])
-            binaryAmount(id_user, float(check_id_user['investment'])  + float(check_id_user['total_amount_left']) + float(check_id_user['total_amount_right']))
-            #chay p_node
-            #+ float(check_id_user['total_node'])   
-            TotalnodeAmount(id_user, float(check_id_user['investment']) + float(check_id_user['total_node']))
-            #hoa hong truc tiep
-            FnRefferalProgram(id_user, float(check_id_user['investment']))
+        #     #chay hai nhanh
+        #     #+ float(check_id_user['total_amount_left']) + float(check_id_user['total_amount_right'])
+        #     binaryAmount(id_user, float(check_id_user['investment'])  + float(check_id_user['total_amount_left']) + float(check_id_user['total_amount_right']))
+        #     #chay p_node
+        #     #+ float(check_id_user['total_node'])   
+        #     TotalnodeAmount(id_user, float(check_id_user['investment']) + float(check_id_user['total_node']))
+        #     #hoa hong truc tiep
+        #     FnRefferalProgram(id_user, float(check_id_user['investment']))
             
 
         return redirect('/account/network-tree')

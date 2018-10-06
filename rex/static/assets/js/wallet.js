@@ -55,6 +55,11 @@ $(function() {
     });
   })
 
+
+
+  $('.add_tree_reffral').on('click',function(){
+    $('#myModalss #username').html($(this).data('username'));
+  });
     /*$.ajax({
         url: "http://0.0.0.0:58056/account/jskfkjsfhkjsdhfqwtryqweqeweqeqwe",
         data: { 'ipn_version': '1.0',
