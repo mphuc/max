@@ -500,34 +500,32 @@ def create_user(sponsor,username,country,email,password):
   }
   customer = db.users.insert(datas)
 
-  send_mail_register(username,email,country,'https://www.diamondcapital.co/user/active/'+str(code_active))
+  send_mail_register(username,email,country,'https://atlass.co/user/active/'+str(code_active))
   return True
 def send_mail_register(username_user,email,country,link_active):
-    username = 'support@diamondcapital.co'
+    username = 'support@atlass.co'
     password = 'm{Q]EI+qNZmD'
     msg = MIMEMultipart('mixed')
-    sender = 'info@diamondcapital.co'
+    sender = 'info@atlass.co'
     recipient = str(email)
-    msg['Subject'] = 'WELCOME TO DIAMOND CAPITAL'
+    msg['Subject'] = 'WELCOME TO ATLASS'
     msg['From'] = sender
     msg['To'] = recipient
     html = """
-      <table border="1" cellpadding="0" cellspacing="0" style="border:solid #e7e8ef 3.0pt;font-size:10pt;font-family:Calibri" width="600"><tbody><tr style="border:#e7e8ef;padding:0 0 0 0"><td style="background-color: #465770; text-align: center;" colspan="2"> <br> <img width="300" alt="Diamond Capital" src="https://i.imgur.com/dy3oBYY.png" class="CToWUd"><br> <br> </td> </tr> <tr> <td width="25" style="border:white"></td> <td style="border:white"> <br>
+      <table border="1" cellpadding="0" cellspacing="0" style="border:solid #e7e8ef 3.0pt;font-size:10pt;font-family:Calibri" width="600"><tbody><tr style="border:#e7e8ef;padding:0 0 0 0"><td style="background-color: #00BCD4; text-align: center;" colspan="2"> <br> <img width="300" alt="Atlass" src="https://image.ibb.co/dPvJeU/logo_1.png" class="CToWUd"><br> <br> </td> </tr> <tr> <td width="25" style="border:white"></td> <td style="border:white"> <br>
       <h1><span style="font-size:19.0pt;font-family:Verdana;color:black">
-      WELCOME TO DIAMOND CAPITAL
+      WELCOME TO ATLASS
       </span></h1>
       <br> </td> </tr> <tr> <td width="25" style="border:white"> &nbsp; </td> 
       <td style="border:white"> <div style="color:#818181;font-size:10.5pt;font-family:Verdana"><span class="im">
       Dear """+str(username_user)+""",<br><br></span> 
       <p>Thank you for enrolling!</p>
-      <p>Below you will find your new member ID number. Please use this number when calling customer support services and in all correspondence.We would like to personally thank you for enrolling as a new team member and we are looking forward to your success!</p>
+      <p>We would like to personally thank you for enrolling as a new team member and we are looking forward to your success!</p>
       
       <p style="text-align:left">
         <strong>Username: """+str(username_user)+"""</trong>
       </p>
-       <p style="text-align:left">
-        <strong>Your URL Name: """+str(country)+"""</trong>
-       </p>     
+         
        <br/>
        <br/>
        <p>Please click below for active your account</p>  
@@ -537,15 +535,15 @@ def send_mail_register(username_user,email,country,link_active):
             Active
           </a>
         </p>                      
-      <br> <br> <br> Best regards,<br> Diamond Capital<br> <span class="il">DIAMOND</span><span class="il">CAPITAL</span> <br><br><br></b> </span></div> </td> </tr>  <tr> <td colspan="2" style="height:30pt;background-color:#e7e8ef;border:none"><center>You are receiving this email because you registered on <a href="https://www.diamondcapital.co/" style="color:#5b9bd5" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.diamondcapital.co/&amp;source=gmail&amp;ust=1536891327064000&amp;usg=AFQjCNH8V24kiJxbXDNAnAyXizuVVYogsQ">https://www.<span class="il">diamondcapital</span>.co/</a><br></center> </td> </tr> </tbody></table>
+      <br> <br> <br> Best regards,<br> Atlass<br> <br><br><br></b> </span></div> </td> </tr>  </tbody></table>
     """
 
     return requests.post(
-      "https://api.mailgun.net/v3/diamondcapital.co/messages",
+      "https://api.mailgun.net/v3/atlass.co/messages",
       auth=("api", "key-cade8d5a3d4f7fcc9a15562aaec55034"),
-      data={"from": "Diamondcapital <info@diamondcapital.co>",
+      data={"from": "Atlass <info@atlass.co>",
         "to": ["", email],
-        "subject": "WELCOME TO DIAMOND CAPITAL",
+        "subject": "WELCOME TO ATLASS",
         "html": html})
 
     # html_message = MIMEText(html, 'html')
@@ -748,12 +746,12 @@ def dashboarupdate_weerpassword(emails):
 def mail_reset_pass(email,username_user,link_active):
     
     html = """
-      <table border="1" cellpadding="0" cellspacing="0" style="border:solid #e7e8ef 3.0pt;font-size:10pt;font-family:Calibri" width="600"><tbody><tr style="border:#e7e8ef;padding:0 0 0 0"><td style="background-color: #465770; text-align: center;" colspan="2"> <br> <img width="300" alt="Diamond Capital" src="https://i.imgur.com/dy3oBYY.png" class="CToWUd"><br> <br> </td> </tr> <tr> <td width="25" style="border:white"></td> <td style="border:white"> <br>
+      <table border="1" cellpadding="0" cellspacing="0" style="border:solid #e7e8ef 3.0pt;font-size:10pt;font-family:Calibri" width="600"><tbody><tr style="border:#e7e8ef;padding:0 0 0 0"><td style="background-color: #00BCD4; text-align: center;" colspan="2"> <br> <img width="300" alt="Atlass" src="https://image.ibb.co/dPvJeU/logo_1.png" class="CToWUd"><br> <br> </td> </tr> <tr> <td width="25" style="border:white"></td> <td style="border:white"> <br>
       <h1><span style="font-size:19.0pt;font-family:Verdana;color:black">
-        Diamond Capital forget password
+      ATLASS FORGOT PASSWORD
       </span></h1>
       <br> </td> </tr> <tr> <td width="25" style="border:white"> &nbsp; </td> 
-      <td style="border:white"> <div style="color:#818181;font-size:10.5pt;font-family:Verdana"><span class="im">
+      <td style="border:white"> <div style="color:#818181;font-size:10.5pt;font-family:Verdana"><<span class="im">
       Dear """+str(email)+""",<br><br></span> 
       
       <p style="text-align:left">
@@ -768,16 +766,16 @@ def mail_reset_pass(email,username_user,link_active):
           <a href='"""+str(link_active)+"""' style="background-color:#41a3e4;color:#ffffff;padding:15px 30px;border-radius:3px;text-decoration:none" target="_blank">
             Change password
           </a>
-        </p>                      
-        <br> <br> <br> Best regards,<br> Diamond Capital<br> <span class="il">DIAMOND</span><span class="il">CAPITAL</span> <br><br><br></b> </span></div> </td> </tr>  <tr> <td colspan="2" style="height:30pt;background-color:#e7e8ef;border:none"><center>You are receiving this email because you registered on <a href="https://www.diamondcapital.co/" style="color:#5b9bd5" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.diamondcapital.co/&amp;source=gmail&amp;ust=1536891327064000&amp;usg=AFQjCNH8V24kiJxbXDNAnAyXizuVVYogsQ">https://www.<span class="il">diamondcapital</span>.co/</a><br></center> </td> </tr> </tbody></table>
+        </p>                         
+      <br> <br> <br> Best regards,<br> Atlass<br> <br><br><br></b> </span></div> </td> </tr>  </tbody></table>
     """
     
     return requests.post(
-      "https://api.mailgun.net/v3/diamondcapital.co/messages",
+      "https://api.mailgun.net/v3/atlass.co/messages",
       auth=("api", "key-cade8d5a3d4f7fcc9a15562aaec55034"),
-      data={"from": "Diamondcapital <info@diamondcapital.co>",
+      data={"from": "atlass <info@atlass.co>",
         "to": ["", email],
-        "subject": "Diamond Capital forget password",
+        "subject": "Atlass forget password",
         "html": html})
     return True
 
