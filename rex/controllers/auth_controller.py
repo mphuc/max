@@ -41,11 +41,11 @@ def check_password(pw_hash, password):
     return check_password_hash(pw_hash, password)
 
 def test_sendmail():
-    username = 'info@diamondcapital.co'
+    username = 'info@atlass.co'
     password = 'm{Q]EI+qNZmD'
     msg = MIMEMultipart('mixed')
 
-    sender = 'info@diamondcapital.co'
+    sender = 'info@atlass/auth/register/.co'
     recipient = str('trungdoanict@gmail.com')
 
     msg['Subject'] = 'SmartFVA Reset Password'
@@ -403,7 +403,7 @@ def create_user_tree(sponsor,position,p_binary,username,country,email,password):
     'total_node' : 0,
     'max_out_day' : 0,
     'max_out_package' : 0,
-    'status_verify' : 0,
+    'status_verify' : 2,
     'level_global' : 0,
     'global_wallet' : 0,
     'personal_info' : { 
@@ -482,7 +482,7 @@ def create_user(sponsor,username,country,email,password):
     'max_out_day' : 0,
     'max_out_package' : 0,
     'f1earnings_wallet' : 0,
-    'status_verify' : 0,
+    'status_verify' : 2,
     'level_global' : 0,
     'global_wallet' : 0,
     'personal_info' : { 
