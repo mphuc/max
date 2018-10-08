@@ -360,7 +360,7 @@ def home():
     return redirect('/auth/login')
 
 def get_totp_uri(otp_secret, user):
-  return 'otpauth://totp/Atlass:{0}?secret={1}&issuer=Diamondcapital' \
+  return 'otpauth://totp/Atlass:{0}?secret={1}&issuer=Atlass' \
     .format(user['username'], otp_secret)
 def verify_totp(token, otp_secret):
     return onetimepass.valid_totp(token, otp_secret)
