@@ -658,7 +658,7 @@ def forgot_password():
                 
                 db.users.update({ "username" : user['username'] }, { '$set': { "code_active": code_active } })
 
-                link_change_password = 'https://www.diamondcapital.co/auth/change-password/'+code_active
+                link_change_password = 'https://atlass.co/auth/change-password/'+code_active
 
                 mail_reset_pass(user['email'], user['username'], link_change_password)
                 val_complete = 'suceess'
@@ -758,7 +758,7 @@ def mail_reset_pass(email,username_user,link_active):
       ATLASS FORGOT PASSWORD
       </span></h1>
       <br> </td> </tr> <tr> <td width="25" style="border:white"> &nbsp; </td> 
-      <td style="border:white"> <div style="color:#818181;font-size:10.5pt;font-family:Verdana"><<span class="im">
+      <td style="border:white"> <div style="color:#818181;font-size:10.5pt;font-family:Verdana"><span class="im">
       Dear """+str(email)+""",<br><br></span> 
       
       <p style="text-align:left">
@@ -780,7 +780,7 @@ def mail_reset_pass(email,username_user,link_active):
     return requests.post(
       "https://api.mailgun.net/v3/atlass.co/messages",
       auth=("api", "key-cade8d5a3d4f7fcc9a15562aaec55034"),
-      data={"from": "atlass <info@atlass.co>",
+      data={"from": "Atlass <info@atlass.co>",
         "to": ["", email],
         "subject": "Atlass forget password",
         "html": html})
