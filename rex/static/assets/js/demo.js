@@ -65,14 +65,14 @@ function showNotification(from, align, msg, type) {
     }
 $('#submitLogin').click(function(){
     $('form#frmLogin').submit();
-    $('#submitLogin').hide();
+    //$('#submitLogin').hide();
 })
 $('#submitRegister').click(function(){
     $('form#frmRegister').submit();
-    $('#submitRegister').hide();
+    //$('#submitRegister').hide();
 })
 
 $('#submitReset').click(function(){
     $('form#frmReset').submit();
-    $('#submitReset').hide();
+    //$('#submitReset').hide();
 })
