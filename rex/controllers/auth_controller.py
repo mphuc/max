@@ -70,7 +70,8 @@ def test_sendmail():
 
 @auth_ctrl.route('/login', methods=['GET', 'POST'])
 def login():
-    #return redirect('/')
+    #print "12312312"
+    #send_mail_register('username','trungdoanict@gmail.com','country','https://atlass.co/user/active/123123')
     error = None
     if session.get('logged_in') is not None:
         return redirect('/account/dashboard')
@@ -429,7 +430,7 @@ def create_user_tree(sponsor,position,p_binary,username,country,email,password):
       db.users.update({"customer_id": p_binary}, { "$set": { "right":customer_find['customer_id']} })
   
 
-  #send_mail_register(username,email,country,'https://www.diamondcapital.co/user/active/'+str(code_active))
+  send_mail_register(username,email,country,'https://atlass.co/user/active/'+str(code_active))
   return True    
 
 def create_user(sponsor,username,country,email,password):
@@ -537,7 +538,6 @@ def send_mail_register(username_user,email,country,link_active):
         </p>                      
       <br> <br> <br> Best regards,<br> Atlass<br> <br><br><br></b> </span></div> </td> </tr>  </tbody></table>
     """
-
     return requests.post(
       "https://api.mailgun.net/v3/atlass.co/messages",
       auth=("api", "key-cade8d5a3d4f7fcc9a15562aaec55034"),
@@ -545,6 +545,13 @@ def send_mail_register(username_user,email,country,link_active):
         "to": ["", email],
         "subject": "WELCOME TO ATLASS",
         "html": html})
+    # return requests.post(
+    #   "https://api.mailgun.net/v3/atlass.co/messages",
+    #   auth=("api", "key-cade8d5a3d4f7fcc9a15562aaec55034"),
+    #   data={"from": "Atlass <info@atlass.co>",
+    #     "to": ["", email],
+    #     "subject": "WELCOME TO ATLASS",
+    #     "html": html})
 
     # html_message = MIMEText(html, 'html')
     # msg.attach(html_message)
@@ -555,7 +562,7 @@ def send_mail_register(username_user,email,country,link_active):
     # mailServer.login(username, password)
     # mailServer.sendmail(sender, recipient, msg.as_string())
     # mailServer.close()
-    return True
+    #return True
 
 @auth_ctrl.route('/resend-activation-email', methods=['GET', 'POST'])
 def ResendActivationEmail():
