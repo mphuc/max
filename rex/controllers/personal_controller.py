@@ -498,7 +498,7 @@ def personaladdtree(p_binary,position):
     uid = session.get('uid')
     user = db.users.find_one({'customer_id': uid})
     
-    query = db.User.find({'$and' :[{'p_node': uid},{'p_binary' : ''},{"level": { "$gt": 0 }}]})
+    query = db.User.find({'$and' :[{'p_node': uid},{'p_binary' : ''}]})
     checkF1 = True
     list_notifications = db.notifications.find({'$and' : [{'read' : 0},{'status' : 0},{'$or' : [{'uid' : uid},{'type' : 'all'}]}]})
     number_notifications = list_notifications.count()
