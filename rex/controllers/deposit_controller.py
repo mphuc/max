@@ -889,7 +889,7 @@ def AddTreeSubmit(p_binary,position):
         check_binary = db.users.find_one({'customer_id': p_binary})
         check_id_user = db.users.find_one({'customer_id': id_user})
 
-        if position == 'left':
+        if int(position) == 1:
             if check_binary['left'] == '':
                 db.users.update({ "customer_id" : p_binary }, { '$set': { 'left': id_user} })
                 db.users.update({ "customer_id" : id_user }, { '$set': { 'p_binary': p_binary} })
