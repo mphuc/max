@@ -37,8 +37,8 @@ __author__ = 'carlozamagni'
 wallet_ctrl = Blueprint('wallet', __name__, static_folder='static', template_folder='templates')
 
 
-ApiCoinpayment = CoinPaymentsAPI(public_key='5adfaf0a57231bcfea8c460fe86bc1324b9a28bed5fc2e79d41950419df256d6',
-                          private_key='e83E58E5a47e20763c06b267aa7e94e68D555216d9e2cDB4dBa8a80e402514E2')
+ApiCoinpayment = CoinPaymentsAPI(public_key='e0ae3b6965c0c4e70fc2185bcac369de635d202130369b71853ab6735fe2ecb9',
+                          private_key='D322a34451c9A32d0adc6B52710EAb917059472b003e9dcc24126D7970df8322')
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
