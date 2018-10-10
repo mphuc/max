@@ -31,14 +31,14 @@ import onetimepass
 import requests
 import sys
 from rex.coinpayments import CoinPaymentsAPI
-
+from rex.config import Config
 __author__ = 'carlozamagni'
 
 wallet_ctrl = Blueprint('wallet', __name__, static_folder='static', template_folder='templates')
 
 
-ApiCoinpayment = CoinPaymentsAPI(public_key='e0ae3b6965c0c4e70fc2185bcac369de635d202130369b71853ab6735fe2ecb9',
-                          private_key='D322a34451c9A32d0adc6B52710EAb917059472b003e9dcc24126D7970df8322')
+ApiCoinpayment = CoinPaymentsAPI(public_key=Config().public_key,
+                          private_key=Config().private_key)
 
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
