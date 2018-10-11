@@ -71,7 +71,7 @@ def test_sendmail():
 @auth_ctrl.route('/login', methods=['GET', 'POST'])
 def login():
     #print "12312312"
-    send_mail_register('username','enrichs.net@gmail.com','country','https://atlass.co/user/active/123123')
+    #send_mail_register('username','enrichs.net@gmail.com','country','https://atlass.co/user/active/123123')
     error = None
     if session.get('logged_in') is not None:
         return redirect('/account/dashboard')
