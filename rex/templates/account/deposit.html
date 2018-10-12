@@ -30,13 +30,20 @@
    <div class="items  col-xs-6">
       ETH/USD: {{data.ticker['eth_usd'] | format_usd}}
    </div>
-   <div  class="clearfix">
+   <div  class="clearfix"></div>
 </div>
 <div class="clearfix"></div>
-<div class="section__content section__content--p30">
+<ul class="nav nav-tabs nav-tab-customer">
+   <li class="active"><a data-toggle="tab" href="#home">DEPOSIT</a></li>
+   <li><a data-toggle="tab" href="#menu1">HISTORY</a></li>
+   
+</ul>
+<div class="tab-content">
+   <div id="home" class="tab-pane fade in active">
+      <div class="section__content section__content--p30">
    <div class="card">
       <div class="card-header">
-         <strong class="card-title">HOW TO DEPOSIT </strong>
+         <strong class="card-title">DEPOSIT </strong>
       </div>
       <div class="card-body">
          <div class="div-wallet-container table-responsive">
@@ -57,10 +64,11 @@
                      <td> Bitcoin</td>
                      
                      <td style="text-align:center">
-                        <button class="btn btn-default btn-deposit button--deposit" data-coin="BTC" data-content="btc-action">Deposit</button>                                
+                        <button type="button" class="btn btn-info btn-lg button--deposit" data-toggle="modal" data-target="#myModalBTC" data-coin="BTC">Deposit</button>
+                                                     
                      </td>
                   </tr>
-                  <tr class="content-show-BTC hiddensss">
+                  <!-- <tr class="content-show-BTC hiddensss">
                      <td colspan="4">
                         <div style="padding:10px 0px 10px;">
                            <h4 style="color: #333333; font-size: 18px">Your Address Bitcoin Deposit</h4>
@@ -78,7 +86,7 @@
                            <div>Sending tokens or any other currency to this address will result in the permanent loss of your deposit.</div>
                         </div>
                      </td>
-                  </tr>
+                  </tr> -->
                   
                   <tr>
                      <td>
@@ -86,10 +94,11 @@
                      <td> Ethereum</td>
                      
                      <td style="text-align:center">
-                        <button class="btn btn-default btn-deposit button--deposit" data-coin="ETH" data-content="btc-action">Deposit</button>                                
+                        <button type="button" class="btn btn-info btn-lg button--deposit" data-toggle="modal" data-target="#myModalETH" data-coin="ETH">Deposit</button>
+                        <!-- <button class="btn btn-default btn-deposit button--deposit" data-coin="ETH" data-content="btc-action">Deposit</button>   -->                              
                      </td>
                   </tr>
-                  <tr class="content-show-ETH hiddensss">
+                  <!-- <tr class="content-show-ETH hiddensss">
                      <td colspan="4">
                         <div style="padding:10px 0px 10px;">
                            <h4 style="color: #333333; font-size: 18px">Your Address Ethereum Deposit</h4>
@@ -108,7 +117,7 @@
                         </div>
                      </td>
                   </tr>
-
+ -->
                  
                </tbody>
             </table>
@@ -116,8 +125,9 @@
       </div>
    </div>
 </div>
-
-<div class="section__content section__content--p30">
+   </div>
+   <div id="menu1" class="tab-pane fade">
+      <div class="section__content section__content--p30">
    <div class="card">
       <div class="card-header">
          <strong class="card-title">DEPOSIT HISTORY </strong>
@@ -165,8 +175,82 @@
          </div>
       </div>
 </div>
+   </div>
+</div>
 
 
+
+
+
+<!-- Modal -->
+<div id="myModalBTC" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Deposit Bitcoin</h4>
+      </div>
+      <div class="modal-body">
+        <div style="padding:10px 0px 10px;">
+            <h4 style="color: #333333; font-size: 18px">Your Address Bitcoin Deposit</h4>
+            <div style="background: #dff1ef;padding: 15px;text-align: center;font-weight: 600;border-radius: 3px;" class="content-all-BTC">
+               <div class="form-group text-center">
+                  <img style="max-width:300px;" class="address-new-img-BTC" alt="" src="">
+               </div>
+               <span style="color: #000;" class="address-new-BTC"></span>
+            </div>
+            <div style="color: #fb4f53;">
+               
+               <div>IMPORTANT: Send only BTC to this deposit address.            
+               </div>
+            </div>
+            <div>Sending tokens or any other currency to this address will result in the permanent loss of your deposit.</div>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="myModalETH" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Deposit Ethereum</h4>
+      </div>
+      <div class="modal-body">
+        <div style="padding:10px 0px 10px;">
+            <h4 style="color: #333333; font-size: 18px">Your Address Ethereum Deposit</h4>
+            <div style="background: #dff1ef;padding: 15px;text-align: center;font-weight: 600;border-radius: 3px;" class="content-all-ETH">
+               <div class="form-group text-center">
+                  <img style="max-width:300px;" class="address-new-img-ETH" alt="" src="">
+               </div>
+               <span style="color: #000;" class="address-new-ETH"></span>
+            </div>
+            <div style="color: #fb4f53;">
+               
+               <div>IMPORTANT: Send only ETH to this deposit address.            
+               </div>
+            </div>
+            <div>Sending tokens or any other currency to this address will result in the permanent loss of your deposit.</div>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 {% endblock %}

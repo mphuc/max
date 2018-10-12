@@ -205,7 +205,49 @@ def total_binary_right(customer_id):
             for yy in id_right_all:
                 count_right = count_right + 1
     return count_right
+def total_node_left(customer_id):
+    customer = db.users.find_one({'customer_id': customer_id})
+    count_left = 0
+    if customer['left'] == '':
+        count_left = 0
+    else:
+        
+        id_left_all = str(customer['left'])+get_id_treess(customer['left'])
+        id_left_all = id_left_all.split(',')
 
+        if (len(id_left_all) > 0):
+            for yy in id_left_all:
+                
+                check_user = db.users.find_one({'customer_id': yy})
+
+                if check_user is not None and check_user['p_node'] == customer_id:
+                    count_left = count_left + 1
+    return count_left
+def get_id_treess(ids):
+    listId = ''
+
+    query = db.users.find({'p_binary': ids})
+    for x in query:
+        listId += ',%s'%(x['customer_id'])
+        listId += get_id_treess(x['customer_id'])
+    return listId
+def total_node_right(customer_id):
+    customer = db.users.find_one({'customer_id': customer_id})
+    count_right = 0
+    if customer['right'] == '':
+        count_right = 0
+    else:
+        
+        id_right_all = str(customer['right'])+get_id_treess(customer['right'])
+        
+        id_right_all = id_right_all.split(',')
+        if (len(id_right_all) > 0):
+            for yy in id_right_all:
+                check_user = db.users.find_one({'customer_id': yy})
+                if check_user is not None and check_user['p_node'] == customer_id:
+                    count_right = count_right + 1
+
+    return count_right  
 @personal_ctrl.route('/network-tree', methods=['GET', 'POST'])
 def personal():
     if session.get(u'logged_in') is None:
@@ -214,11 +256,14 @@ def personal():
     uid = session.get('uid')
     user = db.users.find_one({'customer_id': uid})
     username = user['username']
-    total_binary_lefts =  total_binary_left(uid)
-    total_binary_rights =  total_binary_right(uid)
-
+    
     count_f1 = db.User.find({'$and' :[{'p_node': uid},{"level": { "$gt": 0 }}]}).count()
 
+
+    total_binary_lefts = total_binary_left(uid)
+    total_binary_rights = total_binary_right(uid)
+    total_node_lefts = total_node_left(uid)
+    total_node_rights = total_node_right(uid)
 
     list_notifications = db.notifications.find({'$and' : [{'read' : 0},{'status' : 0},{'$or' : [{'uid' : uid},{'type' : 'all'}]}]})
     number_notifications = list_notifications.count()
@@ -232,7 +277,11 @@ def personal():
         'total_binary_right' : total_binary_rights,
         'count_f1' : count_f1,
         'number_notifications' : number_notifications,
-        'list_notifications' : list_notifications
+        'list_notifications' : list_notifications,
+        'total_binary_left' : total_binary_lefts,
+        'total_binary_right' :total_binary_rights,
+        'total_node_lefts' : total_node_lefts,
+        'total_node_rights' : total_node_rights
     }
     return render_template('account/personal.html', data=values)
 @personal_ctrl.route('/count-binary', methods=['GET', 'POST'])

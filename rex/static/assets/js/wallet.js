@@ -8,7 +8,7 @@ $(function() {
             },
             type: "POST",
             beforeSend: function() {
-                $('.content-show-'+coin).show(300);
+                //$('.content-show-'+coin).show(300);
                 $('.content-all-'+coin).html('<img src="/static/img/ajax-loader.gif" width="120">');
             },
             error: function(data) {

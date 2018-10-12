@@ -21,7 +21,14 @@
 </script>
 {% endblock %}
 {% block main %}
-<div class="section__content section__content--p30">
+<ul class="nav nav-tabs nav-tab-customer">
+   <li class="active"><a data-toggle="tab" href="#home">TRANSFER</a></li>
+   <li><a data-toggle="tab" href="#menu1">HISTORY</a></li>
+   
+</ul>
+<div class="tab-content">
+   <div id="home" class="tab-pane fade in active">
+      <div class="section__content section__content--p30">
    <div class="card">
       <div class="card-header">
          <strong class="card-title">TRANSFER</strong>
@@ -118,7 +125,9 @@
       </div>
    </div>
 </div>
-<div class="section__content section__content--p30">
+   </div>
+   <div id="menu1" class="tab-pane fade">
+      <div class="section__content section__content--p30">
    <div class="card">
       <div class="card-header">
          <strong class="card-title">TRANSFER HISTORY</strong>
@@ -131,52 +140,61 @@
                      <tr>
                         <th class="text-center">No.</th>
                         <th>Datetime</th>
-                        <th>From Acount</th>
-                        <th>To Acount</th>
-                        <th>Receive</th>
-                        <th>Send</th>
-                        <th>Status</th>
+                        <th>Type</th>
+                        <th>Acount</th>
+                        <th>Amount</th>
+                        
+                        <!-- <th>Status</th> -->
                      </tr>
                   </thead>
                   <tbody>
                      {% if data.transfer %}
                      {% for item in data.transfer %}
                      <tr>
-                        <td class="text-center">></td>
+                        <td class="text-center"></td>
                         <td>{{ item.date_added | format_date }}</td>
-                        <td>{{ item.from }}</td>
-                        <td>{{ item.to }}</td>
-                        <td class="text-center">
-                        {% if item.type == "receive" %}
-                           {{item.amount | format_usd }}
-                        {% endif %}
+                        <td>
+                           {% if item.type == "receive" %}
+                              <span style="color: #4CAF50">Receive</span> 
+                           {% endif %}
+                           {% if item.type == "send" %}
+                              <span style="color: red">Send</span> 
+                           {% endif %}
                         </td>
-                        <td class="text-center">
-                        {% if item.type == "send" %}
-                           {{item.amount | format_usd }}
-                        {% endif %}
+                        <td>
+                           {% if item.type == "receive" %}
+                              {{item.from }}
+                           {% endif %}
+                           {% if item.type == "send" %}
+                              {{item.to }}
+                           {% endif %}
+
+                        </td>
+                        <td class="text-center">{% if item.type == "receive" %}{{item.amount | format_usd }}{% endif %}{% if item.type == "send" %}-{{item.amount | format_usd }}{% endif %}</td>
                         
-                        </td>
-                        <td class="text-center">
+                        <!-- <td class="text-center">
                            <label style="color:green">Success</label>
-                        </td>
+                        </td> -->
                      </tr>
                      {% endfor %}
                      {% endif %}
                   </tbody>
-                  <tfoot>
+                  <!-- <tfoot>
                      <tr>
                          
                         <th colspan="4" class="text-right">Total</th>
                         <th class="text-center"></th> 
-                        <th class="text-center" colspan="1"></th> 
-                        <th ></th>
+                        
                      </tr>
-                 </tfoot>
+                 </tfoot> -->
                </table>
             </div>
          </div>
       </div>
    </div>
 </div>
+   </div>
+</div>
+
+
 {% endblock %}

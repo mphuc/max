@@ -11526,7 +11526,7 @@ div.widget-last-second {
 }
 .card-body .box span{
   font-size: 18px;
-    padding: 22px 12px;
+    padding: 22px 2px;
     color: #fff;
 }
 .nopadding .card{
@@ -12113,4 +12113,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar-header{
   background: #097288
+}
+.nav-tab-customer{
+  background: #0b7c94;
+}
+.nav-tab-customer > li > a{
+  font-size: 16px;
+  color: #fff;
+  
+  padding: 12px 21px;
+}
+.nav-tab-customer > li.active > a,.nav-tab-customer > li.active > a, .nav-tab-customer > li.active > a:hover, .nav-tab-customer > li.active > a:focus{
+  background: #0a7288;
+  color: #fff;
+  height: 45px
 }

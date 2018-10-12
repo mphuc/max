@@ -639,7 +639,7 @@ def newsupporReplyt():
             else:    
                 data_support = {
                 'user_id': 'admin',
-                'username' : 'Diamond Capital Support',
+                'username' : 'Atlass Support',
                 'message': message,
                 'date_added' : datetime.utcnow()
                 }

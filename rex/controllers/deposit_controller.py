@@ -840,7 +840,7 @@ def get_percent_generations(customer_id,amount_receve):
                 new_balance_wallet = float(new_balance_wallet)
 
                 db.users.update({ "_id" : ObjectId(customers_f1['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'g_wallet' :new_g_wallet } })
-                detail = 'Get '+str(percent)+' '+"""%"""+' generations bonus from member %s receive $%s' %(username_receive, amount_receve)
+                detail = 'Get '+str(percent)+' '+"""%"""+' from member %s receive $%s' %(username_receive, amount_receve)
                 SaveHistory(customers_f1['customer_id'],customers_f1['_id'],customers_f1['username'], commission, 'generations', 'USD', detail, '', '')
                 
 
@@ -867,7 +867,7 @@ def FnRefferalProgram(user_id, amount_invest):
             new_balance_wallet = float(new_balance_wallet)
 
             db.users.update({ "_id" : ObjectId(customers_f1['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'r_wallet' :new_r_wallet } })
-            detail = 'Get '+str(percent)+' '+"""%"""+' referral bonus from member %s investment $%s' %(username_invest, amount_invest)
+            detail = 'Get '+str(percent)+' '+"""%"""+' from member %s investment $%s' %(username_invest, amount_invest)
             SaveHistory(customers_f1['customer_id'],customers_f1['_id'],customers_f1['username'], commission, 'referral', 'USD', detail, '', '')
             
 

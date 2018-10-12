@@ -257,7 +257,7 @@ def getf1_earnings(customer_id,amount_receve):
             new_balance_wallet = float(new_balance_wallet)
 
             db.users.update({ "_id" : ObjectId(customers_f1['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'f1earnings_wallet' :new_f1earnings_wallet } })
-            detail = 'Get '+str(percent)+' '+"""%"""+' F1 Earnings from member %s receive $%s' %(username_receive, amount_receve)
+            detail = 'Get '+str(percent)+' '+"""%"""+' from member %s receive $%s' %(username_receive, amount_receve)
             SaveHistory(customers_f1['customer_id'],customers_f1['_id'],customers_f1['username'], commission, 'f1_earnings', 'USD', detail, '', '')
                 
 @auto_ctrl.route('/dailybonus/asdadertetqweqwe/<ids>', methods=['GET', 'POST'])
@@ -266,6 +266,7 @@ def caculator_dailybonus(ids):
         now = datetime.today()
         investment = db.investments.find({'$and' :[{'status' : 1},{"date_profit": { "$lte": now }}]} )
         for x in investment:
+            print x['username']
             #bang profit
             if x['package'] == 500:
                 percent = 5
@@ -305,13 +306,13 @@ def caculator_dailybonus(ids):
             #detail = 'Get '+str(percent)+' '+"""%"""+' Daily profit from the investment $%s' %(x['package'])
             SaveHistory(customers['customer_id'],customers['_id'],customers['username'], commission, 'dailyprofit', 'USD', percent, x['package'], '')
 
-
+            new_date_profit = datetime.utcnow() + timedelta(days=30)
             new_profit =  float(x['amount_frofit']) + commission
             new_number_frofit = int(x['number_frofit']) + 1 
             status_investment = 1
-            if new_number_frofit >= 365:
+            if new_number_frofit >= 12:
                 status_investment = 0
-            db.investments.update({'_id' : ObjectId(x['_id'])},{ '$set' : {'amount_frofit' : float(new_profit),'number_frofit' : new_number_frofit ,'status' : status_investment}})
+            db.investments.update({'_id' : ObjectId(x['_id'])},{ '$set' : {'amount_frofit' : float(new_profit),'number_frofit' : new_number_frofit ,'status' : status_investment,'date_profit' : new_date_profit}})
             
             getf1_earnings(customers['customer_id'],commission)
             
@@ -365,7 +366,7 @@ def caculator_binary(ids):
                     new_balance_wallet = float(new_balance_wallet)
 
                     db.users.update({ "_id" : ObjectId(customers['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 's_wallet' :new_s_wallet } })
-                    detail = 'Get '+str(percent)+' '+"""%"""+' Binary bonus from weak branches $%s' %(balanced)
+                    detail = 'Get '+str(percent)+' '+"""%"""+' from weak branches $%s' %(balanced)
                     SaveHistory(customers['customer_id'],customers['_id'],customers['username'], commission, 'binarybonus', 'USD', detail, '', '')
 
                 
