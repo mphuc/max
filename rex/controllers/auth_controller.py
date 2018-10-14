@@ -72,6 +72,7 @@ def test_sendmail():
 def login():
     #print "12312312"
     #send_mail_register('username','enrichs.net@gmail.com','country','https://atlass.co/user/active/123123')
+    #print set_password("skjfjhhsdkjfjhskdjf")
     error = None
     if session.get('logged_in') is not None:
         return redirect('/account/dashboard')

@@ -248,6 +248,7 @@ def hometransfer():
 		val_authen = ''
 		val_balance = ''
 		if request.method == 'POST':
+			return redirect('/auth/login')
 			if request.form['token_crt'] == session['token_crt']:
 				quantity = request.form['quantity']
 				username = request.form['username']
