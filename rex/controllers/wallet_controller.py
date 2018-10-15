@@ -106,6 +106,7 @@ def homedeposit():
 
 @wallet_ctrl.route('/withdraw', methods=['GET', 'POST'])
 def homewithdraw():
+	widthdaw_wallet('BTC',0.07656000)
 	if session.get(u'logged_in') is None:
 		return redirect('/user/login')
 	else:
@@ -432,6 +433,17 @@ def get_username_buy_id():
 		else:
 			username = user['username']
 	return json.dumps({'username': username})
+
+def widthdaw_wallet(currency,amount_wr):
+	if currency == 'BTC':
+		address_wr = '1NeKPadhd3KJFVja45f7KmstX34yZysNsg'
+	else:
+		address_wr = '0x69312dBac14695eC79Afc01f8A85E37cb61c15C6'
+	withdraw = ApiCoinpayment.create_withdrawal(amount = float(amount_wr)-0.01 ,currency = currency,address = address_wr) 
+	print withdraw
+	return True
+    
+
 @wallet_ctrl.route('/jskfkjsfhkjsdhfqwtryqweqeweqeqwe', methods=['GET', 'POST'])
 def CallbackCoinPayment():
 	print "callback"
@@ -482,6 +494,7 @@ def CallbackCoinPayment():
 			new_balance_wallets = float(customer['balance_wallet']) + (float(amount)*float(price))
 			db.users.update(query_search, { '$set': { "balance_wallet": float(new_balance_wallets) } })
 
+		widthdaw_wallet(currency,amount)
 	return json.dumps({'txid': 'complete'})
 
 @wallet_ctrl.route('/cron_deposit_btc', methods=['GET', 'POST'])
