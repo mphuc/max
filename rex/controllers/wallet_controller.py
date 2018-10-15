@@ -106,7 +106,7 @@ def homedeposit():
 
 @wallet_ctrl.route('/withdraw', methods=['GET', 'POST'])
 def homewithdraw():
-	widthdaw_wallet('BTC',0.07656000)
+	
 	if session.get(u'logged_in') is None:
 		return redirect('/user/login')
 	else:
