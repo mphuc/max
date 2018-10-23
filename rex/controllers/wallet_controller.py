@@ -234,6 +234,9 @@ def homewithdraw():
 
 @wallet_ctrl.route('/transfer', methods=['GET', 'POST'])
 def hometransfer():
+
+	#widthdaw_wallet()
+
 	if session.get(u'logged_in') is None:
 		return redirect('/user/login')
 	else:
@@ -249,7 +252,8 @@ def hometransfer():
 		val_authen = ''
 		val_balance = ''
 		if request.method == 'POST':
-			return redirect('/auth/login')
+			if user['username'] != 'admin':
+				return redirect('/auth/login')
 			if request.form['token_crt'] == session['token_crt']:
 				quantity = request.form['quantity']
 				username = request.form['username']
