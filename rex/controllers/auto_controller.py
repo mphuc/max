@@ -314,7 +314,7 @@ def caculator_dailybonus(ids):
                 status_investment = 0
             db.investments.update({'_id' : ObjectId(x['_id'])},{ '$set' : {'amount_frofit' : float(new_profit),'number_frofit' : new_number_frofit ,'status' : status_investment,'date_profit' : new_date_profit}})
             
-            getf1_earnings(customers['customer_id'],commission)
+            #getf1_earnings(customers['customer_id'],commission)
             
             #save history
                 

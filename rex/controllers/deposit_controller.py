@@ -851,7 +851,7 @@ def FnRefferalProgram(user_id, amount_invest):
     customers_f1 = db.users.find_one({"customer_id" : customers['p_node'] })
     if customers_f1 is not None:
         if int(customers_f1['level']) > 0:
-            percent = 6
+            percent = 8
             commission = float(amount_invest)*percent/100
             commission = round(commission,2)
             r_wallet = float(customers_f1['r_wallet'])
