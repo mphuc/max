@@ -361,7 +361,7 @@ def get_new_address():
 		user_id = session.get('user_id')
 		user = db.users.find_one({'customer_id': uid})
 			
-		url_callback = 'http://62.210.84.7:58011/account/jskfkjsfhkjsdhfqwtryqweqeweqeqwe'
+		url_callback = 'http://192.254.73.26:51052/account/jskfkjsfhkjsdhfqwtryqweqeweqeqwe'
 
 		if request.form['type'] == 'BTC':
 			if user['btc_address'] == '':
