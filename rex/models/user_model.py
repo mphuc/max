@@ -98,7 +98,6 @@ class User(Document):
         'active_email' : 0,
         'code_active' : '',
         'investment' : 0,
-        'coin_wallet' : 0,
         'total_node' : 0,
         'max_out_day' : 0,
         'max_out_package' : 0,
