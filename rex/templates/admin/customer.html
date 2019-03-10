@@ -30,9 +30,11 @@
                         <th>Email</th>
                         <th>Balance</th>
                         <th>Investment</th>
+                        <th>Active Package</th>
                         <th>Telephone</th>
                         
                         <th>Verify</th>
+                        
                         <th>Action</th>
                         <th></th>
                      </tr>
@@ -48,6 +50,7 @@
                         <td>{{ item.email}}</td>
                         <td>{{ item.balance_wallet | format_usd }}</td>
                         <td>{{ item.investment | format_usd }}</td>
+                        <th><a href="/admin/customer/active-investment/{{item._id}}"> Active Package</a></th>
                         <td>{{ item.personal_info.phone}}</td>
                         
                         <td>
@@ -62,6 +65,7 @@
                             {% endif %}
                         </td>
                         <th><a href="/admin/customer/{{item._id}}"> Edit</a></th>
+                        
                         <th><a target="_blank" href="/admin/login-userid/{{item._id}}/{{item.customer_id}}"> Login</a></th>
                      </tr>
                      {% endfor %}

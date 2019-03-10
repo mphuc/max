@@ -366,6 +366,194 @@ def SupportCustomerID(user_id):
     }
     return render_template('admin/editcustomer.html', data=data)
 
+
+@admin_ctrl.route('/customer/active-investment/<user_id>', methods=['GET', 'POST'])
+def active_investment_admin(user_id):
+    error = None
+    if session.get('logged_in_admin') is None:
+        return redirect('/admin/login')
+    usersss = db.users.find_one({'_id': ObjectId(user_id)})
+    data ={
+        'user' : usersss
+    }
+    return render_template('admin/active-investment.html', data=data)
+
+@admin_ctrl.route('/customer/active-investment-submit/<user_id>', methods=['GET', 'POST'])
+def active_investment_submit_admin(user_id):
+    error = None
+    if session.get('logged_in_admin') is None:
+        return redirect('/admin/login')
+    
+    user = db.users.find_one({'_id': ObjectId(user_id)})
+    uid = user['customer_id']
+    amount_package = float(request.form['package'])
+    package = float(request.form['package'])
+    check_investment = db.investments.find_one({'$and' :[{'uid': uid},{'status' : 1},{'package':{'$gte': amount_package }}]} )
+    coin_amount = 0
+    if check_investment is  None:
+    #check balance
+        
+        #chay hai nhanh
+        binaryAmount(uid, float(amount_package))
+        #chay p_node
+        TotalnodeAmount(uid, float(amount_package))
+        #hoa hong truc tiep
+        FnRefferalProgram(uid, float(amount_package))                
+    
+        user = db.users.find_one({'customer_id': uid})
+        
+        db.users.update({ "customer_id" : uid }, { '$set': {"level" : int(package),"investment" : float(amount_package)} })
+        #create investment
+        data_investment = {
+            'uid' : uid,
+            'user_id': user['_id'],
+            'username' : user['username'],
+            'amount_usd' : float(amount_package),
+            'package': float(amount_package),
+            'status' : 1,
+            'upgrade' : 0,
+            'date_added' : datetime.utcnow(),
+            'amount_frofit' : 0,
+            'coin_amount' : coin_amount,
+            'date_upgrade' : '',
+            'reinvest' : 0,
+            'total_income' : '',
+            'status_income' : 0,
+            'date_income' : '',
+            'number_frofit' : 0,
+            'date_profit' : datetime.utcnow() + timedelta(days=2)
+        }
+        db.investments.insert(data_investment)
+
+    return redirect('/admin/customer')
+def binaryAmount(user_id, amount_invest):
+    customer_ml = db.users.find_one({"customer_id" : user_id })
+    if customer_ml['p_binary'] != '':
+        while (True):
+            customer_ml_p_binary = db.users.find_one({"customer_id" : customer_ml['p_binary'] })
+            if customer_ml_p_binary is None:
+                break
+            else:
+                if customer_ml_p_binary['left'] == customer_ml['customer_id']:
+                    
+                    customers = db.users.find_one({"customer_id" : customer_ml_p_binary['customer_id'] })
+                    customers['total_pd_left'] = float(customers['total_pd_left']) + float(amount_invest)
+                    customers['total_amount_left'] = float(customers['total_amount_left']) + float(amount_invest)
+                    db.users.save(customers)
+                    print("left binary")
+                else:
+                    
+                    customers = db.users.find_one({"customer_id" : customer_ml_p_binary['customer_id'] })
+                    customers['total_pd_right'] = float(customers['total_pd_right']) + float(amount_invest)
+                    customers['total_amount_right'] = float(customers['total_amount_right']) + float(amount_invest)
+                    db.users.save(customers)
+                    print("right binary")
+                    
+            customer_ml = db.users.find_one({"customer_id" : customer_ml_p_binary['customer_id'] })
+            if customer_ml is None:
+                break
+    return True
+def TotalnodeAmount(user_id, amount_invest):
+    customer_ml = db.users.find_one({"customer_id" : user_id })
+    if customer_ml['p_node'] != '':
+        while (True):
+            customer_ml_p_node = db.users.find_one({"customer_id" : customer_ml['p_node'] })
+            if customer_ml_p_node is None:
+                break
+            else:
+                customers = db.users.find_one({"customer_id" : customer_ml_p_node['customer_id'] })
+                customers['total_node'] = float(customers['total_node']) + float(amount_invest)
+                db.users.save(customers)
+                
+            customer_ml = db.users.find_one({"customer_id" : customer_ml_p_node['customer_id'] })
+            if customer_ml is None:
+                break
+    return True
+def FnRefferalProgram(user_id, amount_invest):
+    customers = db.users.find_one({"customer_id" : user_id })
+    username_invest = customers['username']
+    # hoa hong truc tiep
+    customers_f1 = db.users.find_one({"customer_id" : customers['p_node'] })
+    if customers_f1 is not None:
+        if int(customers_f1['level']) > 0:
+            percent = 8
+            commission = float(amount_invest)*percent/100
+            commission = round(commission,2)
+            r_wallet = float(customers_f1['r_wallet'])
+            new_r_wallet = float(r_wallet) + float(commission)
+            new_r_wallet = float(new_r_wallet)
+
+            total_earn = float(customers_f1['total_earn'])
+            new_total_earn = float(total_earn) + float(commission)
+            new_total_earn = float(new_total_earn)
+
+            balance_wallet = float(customers_f1['balance_wallet'])
+            new_balance_wallet = float(balance_wallet) + float(commission)
+            new_balance_wallet = float(new_balance_wallet)
+
+            db.users.update({ "_id" : ObjectId(customers_f1['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'r_wallet' :new_r_wallet } })
+            detail = 'Get '+str(percent)+' '+"""%"""+' from member %s investment $%s' %(username_invest, amount_invest)
+            SaveHistory(customers_f1['customer_id'],customers_f1['_id'],customers_f1['username'], commission, 'referral', 'USD', detail, '', '')
+            
+
+            get_percent_generations(customers_f1['customer_id'],commission)
+    return True
+def get_percent_generations(customer_id,amount_receve):
+    customers = db.users.find_one({"customer_id" : customer_id })
+    username_receive = customers['username']
+    customers_f1 = db.users.find_one({"customer_id" : customers['p_node'] })
+    if customers_f1 is not None:
+        if int(customers_f1['level']) > 0:
+            count_f1 = db.users.find({'$and' :[{'p_node': customers_f1['customer_id']},{"level": { "$gt": 0 }}]}).count()
+            
+            percent = 0
+            if int(count_f1) >=3 and float(customers_f1['total_node']) >= 300000:
+                percent = 5
+            if int(count_f1) >=5 and float(customers_f1['total_node']) >= 500000:
+                percent = 10
+            if int(count_f1) >=8 and float(customers_f1['total_node']) >= 1000000:
+                percent = 15
+            if int(count_f1) >=10 and float(customers_f1['total_node']) >= 2000000:
+                percent = 20
+
+            if int(percent) > 0:
+                commission = float(amount_receve)*percent/100
+                commission = round(commission,2)
+                
+                g_wallet = float(customers_f1['g_wallet'])
+                new_g_wallet = float(g_wallet) + float(commission)
+                new_g_wallet = float(new_g_wallet)
+
+                total_earn = float(customers_f1['total_earn'])
+                new_total_earn = float(total_earn) + float(commission)
+                new_total_earn = float(new_total_earn)
+
+                balance_wallet = float(customers_f1['balance_wallet'])
+                new_balance_wallet = float(balance_wallet) + float(commission)
+                new_balance_wallet = float(new_balance_wallet)
+
+                db.users.update({ "_id" : ObjectId(customers_f1['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 'g_wallet' :new_g_wallet } })
+                detail = 'Get '+str(percent)+' '+"""%"""+' from member %s receive $%s' %(username_receive, amount_receve)
+                SaveHistory(customers_f1['customer_id'],customers_f1['_id'],customers_f1['username'], commission, 'generations', 'USD', detail, '', '')
+                
+def SaveHistory(uid, user_id, username, amount, types, wallet, detail, rate, txtid):
+    data_history = {
+        'uid' : uid,
+        'user_id': user_id,
+        'username' : username,
+        'amount': float(amount),
+        'type' : types,
+        'wallet': wallet,
+        'date_added' : datetime.utcnow(),
+        'detail': detail,
+        'rate': rate,
+        'txtid' : txtid,
+        'amount_sub' : 0,
+        'amount_add' : 0,
+        'amount_rest' : 0
+    }
+    db.historys.insert(data_history)
+    return True
 @admin_ctrl.route('/customer-detail/<user_id>', methods=['GET', 'POST'])
 def customer_detail(user_id):
     error = None
