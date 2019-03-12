@@ -229,7 +229,7 @@ def ActiveInvestmentSumit(package):
                 'status_income' : 0,
                 'date_income' : '',
                 'number_frofit' : 0,
-                'date_profit' : datetime.utcnow() + timedelta(days=2)
+                'date_profit' : datetime.utcnow() + timedelta(days=30)
             }
             db.investments.insert(data_investment)
             #send_mail_active_package(user['email'],user['username'],float(amount_package) )

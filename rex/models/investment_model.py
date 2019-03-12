@@ -25,6 +25,7 @@ class Investment(Document):
         'total_income' : float,
         'status_income' : int,
         'number_frofit' : int,
+        'percent' : float,
         'date_income' : datetime.datetime,
         'date_profit' : datetime.datetime
     }

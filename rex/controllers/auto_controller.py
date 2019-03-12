@@ -271,7 +271,9 @@ def caculator_dailybonus(ids):
             if x['package'] == 500:
                 percent = 5
             if x['package'] == 2000:
-                percent = 5
+                percent = 5.5
+            if x['package'] == 5000:
+                percent = 6
             if x['package'] == 10000:
                 percent = 8
             if x['package'] == 30000:
@@ -324,52 +326,52 @@ def caculator_binary(ids):
     
     # return json.dumps({'status' : 'off'})
     if ids =='RsaW3Kb1gDkdRUGDo':
-        countUser = db.users.find({'$and': [{'total_pd_left':{'$gt': 0 }}, {'total_pd_right':{'$gt': 0 }}]}).count()
+        countUser = db.users.find({'$and': [{'total_pd_left':{'$gt': 0 }}, {'total_pd_right':{'$gt': 0 }}, {'level':{'$gt': 0 }}]}).count()
         if countUser > 0:
-            user = db.users.find({'$and': [{'total_pd_left':{'$gt': 0 }}, {'total_pd_right':{'$gt': 0 }}]})
+            user = db.users.find({'$and': [{'total_pd_left':{'$gt': 0 }}, {'total_pd_right':{'$gt': 0 }}, {'level':{'$gt': 0 }}]})
             
             for x in user:
-                if binary_left(x['customer_id']) == 1 and binary_right(x['customer_id']) == 1:
-                    if x['total_pd_left'] > x['total_pd_right']:
-                        balanced = x['total_pd_right']
-                        pd_left = float(x['total_pd_left'])-float(x['total_pd_right'])
-                        db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_left": pd_left } })
-                        db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_right": 0 } })
-                    else:
-                        balanced = x['total_pd_left']
-                        pd_right = float(x['total_pd_right'])-float(x['total_pd_left'])
-                        db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_left": 0 } })
-                        db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_right": pd_right } })
-                    
-                    level = float(x['level'])
-                    percent = 5
-
-                    print x['username']
-
-                    #tinh commision
-                    commission = float(balanced)*float(percent)/100
-                    commission = round(commission,2)
-                    
-                    #update balance
-                    customers = db.users.find_one({'customer_id': x['customer_id']})
-
-                    s_wallet = float(customers['s_wallet'])
-                    new_s_wallet = float(s_wallet) + float(commission)
-                    new_s_wallet = float(new_s_wallet)
-
-                    total_earn = float(customers['total_earn'])
-                    new_total_earn = float(total_earn) + float(commission)
-                    new_total_earn = float(new_total_earn)
-
-                    balance_wallet = float(customers['balance_wallet'])
-                    new_balance_wallet = float(balance_wallet) + float(commission)
-                    new_balance_wallet = float(new_balance_wallet)
-
-                    db.users.update({ "_id" : ObjectId(customers['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 's_wallet' :new_s_wallet } })
-                    detail = 'Get '+str(percent)+' '+"""%"""+' from weak branches $%s' %(balanced)
-                    SaveHistory(customers['customer_id'],customers['_id'],customers['username'], commission, 'binarybonus', 'USD', detail, '', '')
-
+                #if binary_left(x['customer_id']) == 1 and binary_right(x['customer_id']) == 1:
+                if x['total_pd_left'] > x['total_pd_right']:
+                    balanced = x['total_pd_right']
+                    pd_left = float(x['total_pd_left'])-float(x['total_pd_right'])
+                    db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_left": pd_left } })
+                    db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_right": 0 } })
+                else:
+                    balanced = x['total_pd_left']
+                    pd_right = float(x['total_pd_right'])-float(x['total_pd_left'])
+                    db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_left": 0 } })
+                    db.users.update({ "customer_id" : x['customer_id'] }, { '$set': { "total_pd_right": pd_right } })
                 
+                level = float(x['level'])
+                percent = 5
+
+                print x['username']
+
+                #tinh commision
+                commission = float(balanced)*float(percent)/100
+                commission = round(commission,2)
+                
+                #update balance
+                customers = db.users.find_one({'customer_id': x['customer_id']})
+
+                s_wallet = float(customers['s_wallet'])
+                new_s_wallet = float(s_wallet) + float(commission)
+                new_s_wallet = float(new_s_wallet)
+
+                total_earn = float(customers['total_earn'])
+                new_total_earn = float(total_earn) + float(commission)
+                new_total_earn = float(new_total_earn)
+
+                balance_wallet = float(customers['balance_wallet'])
+                new_balance_wallet = float(balance_wallet) + float(commission)
+                new_balance_wallet = float(new_balance_wallet)
+
+                db.users.update({ "_id" : ObjectId(customers['_id']) }, { '$set': {'balance_wallet' : new_balance_wallet,'total_earn': new_total_earn, 's_wallet' :new_s_wallet } })
+                detail = 'Get '+str(percent)+' '+"""%"""+' from weak branches $%s' %(balanced)
+                SaveHistory(customers['customer_id'],customers['_id'],customers['username'], commission, 'binarybonus', 'USD', detail, '', '')
+
+            
                     
         return json.dumps({'status' : 'success'})
     else:
