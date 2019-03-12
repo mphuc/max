@@ -83,7 +83,7 @@ def login():
     val_login = ''
     if request.method == 'POST':
 
-        username = request.form['username']
+        username = request.form['username'].lower()
         password = request.form['password']
         recaptcha = request.form['g-recaptcha-response']
         if username == '':
@@ -159,8 +159,8 @@ def signup(id_sponsor):
     if request.method == 'POST':
       sponsor = request.form['sponsor']
       country = request.form['country']
-      email = request.form['email']
-      username = request.form['username']
+      email = request.form['email'].lower()
+      username = request.form['username'].lower()
       password = request.form['password']
       #terms = 
       recaptcha = request.form['g-recaptcha-response']
@@ -262,8 +262,8 @@ def signup_intreessss(positon, p_binary, sponsor):
     if request.method == 'POST':
       
       country = request.form['country']
-      email = request.form['email']
-      username = request.form['username']
+      email = request.form['email'].lower()
+      username = request.form['username'].lower()
       password = request.form['password']
       
       recaptcha = request.form['g-recaptcha-response']
