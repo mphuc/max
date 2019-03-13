@@ -252,8 +252,8 @@ def hometransfer():
 		val_authen = ''
 		val_balance = ''
 		if request.method == 'POST':
-			if user['username'] != 'admin':
-				return redirect('/auth/login')
+			# if user['username'] != 'admin':
+			# 	return redirect('/auth/login')
 			if request.form['token_crt'] == session['token_crt']:
 				quantity = request.form['quantity']
 				username = request.form['username']
@@ -261,13 +261,13 @@ def hometransfer():
 
 				if username == '' or username == user['username']:
 					val_user_id = 'empty'
-				# else:
-				# 	check_id_user = db.users.find_one({'username': username})
-				# 	if check_id_user is None:
-				# 		val_user_id = 'not'
-				# 	else:
-				# 		if check_user_send(uid,check_id_user['customer_id']) == False:
-				# 			val_user_id = 'not_node'
+				else:
+					check_id_user = db.users.find_one({'username': username})
+					if check_id_user is None:
+						val_user_id = 'not'
+					else:
+						if check_user_send(uid,check_id_user['customer_id']) == False:
+							val_user_id = 'not_node'
 
 				if is_number(quantity) == False  or quantity == '' or float(quantity) < 50:
 					val_quantity = 'empty'
