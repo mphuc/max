@@ -201,11 +201,11 @@ def homewithdraw():
 		session['token_crt'] = token_crt
 		user = db.users.find_one({'customer_id': uid})
 
-		now_day = datetime.now().weekday()
+		now_day = datetime.now().day
 
-
+		
 		statrus_withdraw = False
-		if int(now_day) == 2:	
+		if int(now_day) == 2 or int(now_day) == 18:	
 			statrus_withdraw = True
 			withdrawa_no_active = db.withdrawas.find_one({'$and' : [{'uid': uid},{'status' : 0}]})
 			if withdrawa_no_active is not None:
