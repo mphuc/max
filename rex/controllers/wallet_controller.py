@@ -261,13 +261,13 @@ def hometransfer():
 
 				if username == '' or username == user['username']:
 					val_user_id = 'empty'
-				else:
-					check_id_user = db.users.find_one({'username': username})
-					if check_id_user is None:
-						val_user_id = 'not'
-					else:
-						if check_user_send(uid,check_id_user['customer_id']) == False:
-							val_user_id = 'not_node'
+				# else:
+				# 	check_id_user = db.users.find_one({'username': username})
+				# 	if check_id_user is None:
+				# 		val_user_id = 'not'
+				# 	else:
+				# 		if check_user_send(uid,check_id_user['customer_id']) == False:
+				# 			val_user_id = 'not_node'
 
 				if is_number(quantity) == False  or quantity == '' or float(quantity) < 50:
 					val_quantity = 'empty'
