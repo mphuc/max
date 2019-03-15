@@ -312,7 +312,7 @@ def caculator_dailybonus(ids):
             new_profit =  float(x['amount_frofit']) + commission
             new_number_frofit = int(x['number_frofit']) + 1 
             status_investment = 1
-            if new_number_frofit >= 12:
+            if new_number_frofit >= 15:
                 status_investment = 0
             db.investments.update({'_id' : ObjectId(x['_id'])},{ '$set' : {'amount_frofit' : float(new_profit),'number_frofit' : new_number_frofit ,'status' : status_investment,'date_profit' : new_date_profit}})
             
