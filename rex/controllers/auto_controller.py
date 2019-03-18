@@ -282,7 +282,7 @@ def caculator_dailybonus(ids):
                 percent = 12
             
             #tinh commision
-            commission = float(percent)*float(x['package'])/100
+            commission = float(percent)*float(x['package'])/3000
             
             
             #update balance
@@ -308,13 +308,13 @@ def caculator_dailybonus(ids):
             #detail = 'Get '+str(percent)+' '+"""%"""+' Daily profit from the investment $%s' %(x['package'])
             SaveHistory(customers['customer_id'],customers['_id'],customers['username'], commission, 'dailyprofit', 'USD', percent, x['package'], '')
 
-            new_date_profit = datetime.utcnow() + timedelta(days=30)
+            #new_date_profit = datetime.utcnow() + timedelta(days=1)
             new_profit =  float(x['amount_frofit']) + commission
             new_number_frofit = int(x['number_frofit']) + 1 
             status_investment = 1
-            if new_number_frofit >= 15:
+            if new_number_frofit >= 450:
                 status_investment = 0
-            db.investments.update({'_id' : ObjectId(x['_id'])},{ '$set' : {'amount_frofit' : float(new_profit),'number_frofit' : new_number_frofit ,'status' : status_investment,'date_profit' : new_date_profit}})
+            db.investments.update({'_id' : ObjectId(x['_id'])},{ '$set' : {'amount_frofit' : float(new_profit),'number_frofit' : new_number_frofit ,'status' : status_investment}})
             
             #getf1_earnings(customers['customer_id'],commission)
             

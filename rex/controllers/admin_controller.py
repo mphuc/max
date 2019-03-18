@@ -421,7 +421,7 @@ def active_investment_submit_admin(user_id):
             'status_income' : 0,
             'date_income' : '',
             'number_frofit' : 0,
-            'date_profit' : datetime.utcnow() + timedelta(days=30)
+            'date_profit' : datetime.utcnow() + timedelta(days=1)
         }
         db.investments.insert(data_investment)
 
