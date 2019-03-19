@@ -379,6 +379,30 @@
     background: url(../../img/package/package-add.png) center center no-repeat;
     background-size: 35px
 }
+.personal-tree .type-500{
+    background: url(../../img/package/package-1.png) center center no-repeat;
+    background-size: 35px
+}
+.personal-tree .type-2000{
+    background: url(../../img/package/package-2.png) center center no-repeat;
+    background-size: 35px
+}
+.personal-tree .type-5000{
+    background: url(../../img/package/package-3.png) center center no-repeat;
+    background-size: 35px
+}
+.personal-tree .type-10000{
+    background: url(../../img/package/package-4.png) center center no-repeat;
+    background-size: 35px
+}
+.personal-tree .type-30000{
+    background: url(../../img/package/package-5.png) center center no-repeat;
+    background-size: 35px
+}
+.personal-tree .type-50000{
+    background: url(../../img/package/package-6.png) center center no-repeat;
+    background-size: 35px
+}
 span.btn.btn-default.btn-tree {
     border-radius: 40px
 }
